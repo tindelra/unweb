@@ -1,0 +1,573 @@
+<!doctype html>
+<html lang="id" class="h-full">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Poppins:wght@300;400;500;600&amp;family=Great+Vibes&amp;display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="h-full">
+  <div id="app" class="w-full h-full overflow-auto"><!-- Cover Page -->
+    <div id="cover-page" class="hero-section"
+      style="position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999;">
+      <div class="cover-layer layer-1" style="background-image: url('Ardella & Krisna/layer1-background.png');"></div>
+      <div class="cover-layer layer-2" style="background-image: url('Ardella & Krisna/layer2-tree behind home.png');">
+      </div>
+      <div class="cover-layer layer-3" style="background-image: url('Ardella & Krisna/layer3-tree behind home2.png');">
+      </div>
+      <div class="cover-layer layer-4" style="background-image: url('Ardella & Krisna/layer4-home.png');"></div>
+      <div class="cover-layer layer-5" style="background-image: url('Ardella & Krisna/layer5-weed.png');"></div>
+      <div class="cover-layer layer-6"
+        style="background-image: url('Ardella & Krisna/layer6-redflower front home.png');"></div>
+      <div class="cover-layer layer-7" style="background-image: url('Ardella & Krisna/layer7-weed2.png');"></div>
+      <div class="cover-layer layer-8" style="background-image: url('Ardella & Krisna/layer8-dried flower.png');"></div>
+      <div class="cover-layer layer-9" style="background-image: url('Ardella & Krisna/layer9-janur.png');"></div>
+      <div class="cover-layer layer-10" style="background-image: url('Ardella & Krisna/layer10-wayang.png');"></div>
+      <p id="opening-title" class="text-sm tracking-widest mb-8" style="color: #c9a961; letter-spacing: 3px;">THE
+        WEDDING OF</p>
+      <div class="photo-frame" style="max-width: 350px; position: relative;"><input type="file"
+          id="opening-couple-upload" accept="image/*" style="display: none;"> <button
+          onclick="document.getElementById('opening-couple-upload').click()"
+          class="absolute top-4 right-4 z-10 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:shadow-xl transition-all"
+          style="border: 2px solid #c9a961; color: #c9a961; font-size: 20px; cursor: pointer;"
+          title="Upload foto couple"> 📷 </button>
+        <div id="opening-couple-photo" class="photo-placeholder couple-photo"></div>
+      </div>
+      <h1 class="font-script text-6xl md:text-7xl mt-10 mb-4 gold-text"><span id="opening-bride">Varo</span> &amp;
+        <span id="opening-groom">Ansel</span>
+      </h1>
+    </div>
+  </div>
+  </section><!-- 2. Ayat Al-Quran -->
+  <section class="section-white">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="slide-up">
+        <div class="icon-ornament">
+          📖
+        </div>
+        <div class="divider-ornament">
+          <div class="divider-line"></div><span class="divider-center">❖</span>
+          <div class="divider-line"></div>
+        </div>
+        <p id="quran-verse" class="font-serif text-xl md:text-2xl leading-relaxed mb-6"
+          style="color: #555; font-style: italic; line-height: 1.8;">"Dan di antara tanda-tanda kekuasaan-Nya ialah
+          Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram
+          kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."</p>
+        <p id="quran-source" class="text-sm gold-text font-semibold tracking-wide">QS. Ar-Rum: 21</p>
+      </div>
+    </div>
+  </section><!-- 3. Mempelai Wanita -->
+  <section class="section-light">
+    <div class="max-w-4xl mx-auto">
+      <div class="slide-up text-center">
+        <div class="icon-ornament">
+          👰
+        </div>
+        <h2 class="font-serif text-4xl md:text-5xl mb-8 gold-text font-bold">The Bride</h2>
+        <div class="photo-frame" style="max-width: 320px; position: relative;"><input type="file"
+            id="bride-photo-upload" accept="image/*" style="display: none;"> <button
+            onclick="document.getElementById('bride-photo-upload').click()"
+            class="absolute top-4 right-4 z-10 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:shadow-xl transition-all"
+            style="border: 2px solid #c9a961; color: #c9a961; font-size: 20px; cursor: pointer;"
+            title="Upload foto bride"> 📷 </button>
+          <div id="bride-photo" class="photo-placeholder"></div>
+        </div>
+        <h3 id="bride-full-name" class="font-script text-5xl md:text-6xl mt-8 mb-4 gold-text">Varo Amelia Putri</h3>
+        <p class="text-base mb-2" style="color: #666;">Putri dari</p>
+        <p class="text-lg font-semibold mb-1" style="color: #555;"><span id="bride-father">Bapak Ahmad</span> &amp;
+          <span id="bride-mother">Ibu Siti</span>
+        </p>
+        <div class="mt-6"><a id="bride-instagram-link" href="https://instagram.com/varoamelia" target="_blank"
+            rel="noopener noreferrer" class="inline-flex items-center gap-2 text-base gold-text hover:underline">
+            <span>📷</span> <span id="bride-instagram">@varoamelia</span> </a>
+        </div>
+      </div>
+    </div>
+  </section><!-- 4. Mempelai Pria -->
+  <section class="section-white">
+    <div class="max-w-4xl mx-auto">
+      <div class="slide-up text-center">
+        <div class="icon-ornament">
+          🤵
+        </div>
+        <h2 class="font-serif text-4xl md:text-5xl mb-8 gold-text font-bold">The Groom</h2>
+        <div class="photo-frame" style="max-width: 320px; position: relative;"><input type="file"
+            id="groom-photo-upload" accept="image/*" style="display: none;"> <button
+            onclick="document.getElementById('groom-photo-upload').click()"
+            class="absolute top-4 right-4 z-10 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:shadow-xl transition-all"
+            style="border: 2px solid #c9a961; color: #c9a961; font-size: 20px; cursor: pointer;"
+            title="Upload foto groom"> 📷 </button>
+          <div id="groom-photo" class="photo-placeholder"></div>
+        </div>
+        <h3 id="groom-full-name" class="font-script text-5xl md:text-6xl mt-8 mb-4 gold-text">Ansel Mahendra</h3>
+        <p class="text-base mb-2" style="color: #666;">Putra dari</p>
+        <p class="text-lg font-semibold mb-1" style="color: #555;"><span id="groom-father">Bapak Budi</span> &amp;
+          <span id="groom-mother">Ibu Rina</span>
+        </p>
+        <div class="mt-6"><a id="groom-instagram-link" href="https://instagram.com/anselmahendra" target="_blank"
+            rel="noopener noreferrer" class="inline-flex items-center gap-2 text-base gold-text hover:underline">
+            <span>📷</span> <span id="groom-instagram">@anselmahendra</span> </a>
+        </div>
+      </div>
+    </div>
+  </section><!-- 5. Love Quote -->
+  <section class="section-dark">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="slide-up">
+        <div class="icon-ornament">
+          💕
+        </div>
+        <div class="divider-ornament">
+          <div class="divider-line"></div><span class="divider-center">❖</span>
+          <div class="divider-line"></div>
+        </div>
+        <p id="love-quote" class="font-serif text-2xl md:text-3xl leading-relaxed"
+          style="color: #ffffff; font-style: italic; line-height: 1.8;">"Cinta adalah menemukan orang yang tepat di
+          waktu yang tepat, yang membuat hidup terasa lebih indah dan bermakna."</p>
+      </div>
+    </div>
+  </section><!-- 6. Our Story -->
+  <section class="section-light">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center slide-up mb-16">
+        <div class="icon-ornament">
+          💝
+        </div>
+        <h2 class="font-serif text-4xl md:text-5xl mb-4 gold-text font-bold">Our Story</h2>
+        <div class="divider-ornament">
+          <div class="divider-line"></div><span class="divider-center">❖</span>
+          <div class="divider-line"></div>
+        </div>
+        <p class="text-base mt-6" style="color: #777;">Perjalanan cinta kami</p>
+      </div>
+      <div class="max-w-2xl mx-auto"><!-- Timeline 1 -->
+        <div class="timeline-item slide-up">
+          <div class="timeline-dot">
+            💫
+          </div>
+          <div id="story-1-bg" class="rounded-2xl shadow-lg overflow-hidden"
+            style="position: relative; background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23d0c4b8%22 width=%22400%22 height=%22400%22/><circle cx=%22200%22 cy=%22200%22 r=%22100%22 fill=%22%23e8dfd5%22 opacity=%220.3%22/></svg>') center/cover, linear-gradient(135deg, #d0c4b8 0%, #e8dfd5 50%, #d0c4b8 100%); min-height: 300px;">
+            <input type="file" id="story-1-upload" accept="image/*" style="display: none;"> <button
+              onclick="document.getElementById('story-1-upload').click()"
+              class="absolute top-4 right-4 z-10 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-all"
+              style="border: 2px solid #c9a961; color: #c9a961; font-size: 18px; cursor: pointer;" title="Upload foto">
+              📷 </button>
+            <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 1;"></div>
+            <div style="position: relative; z-index: 2; padding: 40px 30px; color: white;">
+              <p id="story-1-date" class="text-sm font-semibold mb-2" style="color: #c9a961;">Januari 2020</p>
+              <h3 id="story-1-title" class="font-serif text-2xl font-bold mb-3"
+                style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">First Meet</h3>
+              <p id="story-1-text" class="text-base leading-relaxed"
+                style="color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Pertemuan pertama kami yang tak
+                terduga di sebuah acara kampus. Saat itu kami tidak menyangka bahwa pertemuan singkat itu akan
+                menjadi awal dari sebuah kisah cinta yang indah.</p>
+            </div>
+          </div>
+        </div><!-- Timeline 2 -->
+        <div class="timeline-item slide-up">
+          <div class="timeline-dot">
+            ❤️
+          </div>
+          <div id="story-2-bg" class="rounded-2xl shadow-lg overflow-hidden"
+            style="position: relative; background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23c9b8a8%22 width=%22400%22 height=%22400%22/><circle cx=%22150%22 cy=%22250%22 r=%22120%22 fill=%22%23d8cfc5%22 opacity=%220.3%22/></svg>') center/cover, linear-gradient(135deg, #c9b8a8 0%, #d8cfc5 50%, #c9b8a8 100%); min-height: 300px;">
+            <input type="file" id="story-2-upload" accept="image/*" style="display: none;"> <button
+              onclick="document.getElementById('story-2-upload').click()"
+              class="absolute top-4 right-4 z-10 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-all"
+              style="border: 2px solid #c9a961; color: #c9a961; font-size: 18px; cursor: pointer;" title="Upload foto">
+              📷 </button>
+            <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 1;"></div>
+            <div style="position: relative; z-index: 2; padding: 40px 30px; color: white;">
+              <p id="story-2-date" class="text-sm font-semibold mb-2" style="color: #c9a961;">Juni 2021</p>
+              <h3 id="story-2-title" class="font-serif text-2xl font-bold mb-3"
+                style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">The Relationship</h3>
+              <p id="story-2-text" class="text-base leading-relaxed"
+                style="color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Kami memulai perjalanan sebagai
+                sepasang kekasih. Setiap hari terasa istimewa, penuh dengan tawa, cerita, dan kenangan indah yang
+                terus kami ciptakan bersama.</p>
+            </div>
+          </div>
+        </div><!-- Timeline 3 -->
+        <div class="timeline-item slide-up">
+          <div class="timeline-dot">
+            💍
+          </div>
+          <div id="story-3-bg" class="rounded-2xl shadow-lg overflow-hidden"
+            style="position: relative; background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23b8a89c%22 width=%22400%22 height=%22400%22/><circle cx=%22250%22 cy=%22150%22 r=%22110%22 fill=%22%23cfc5bb%22 opacity=%220.3%22/></svg>') center/cover, linear-gradient(135deg, #b8a89c 0%, #cfc5bb 50%, #b8a89c 100%); min-height: 300px;">
+            <input type="file" id="story-3-upload" accept="image/*" style="display: none;"> <button
+              onclick="document.getElementById('story-3-upload').click()"
+              class="absolute top-4 right-4 z-10 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-all"
+              style="border: 2px solid #c9a961; color: #c9a961; font-size: 18px; cursor: pointer;" title="Upload foto">
+              📷 </button>
+            <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 1;"></div>
+            <div style="position: relative; z-index: 2; padding: 40px 30px; color: white;">
+              <p id="story-3-date" class="text-sm font-semibold mb-2" style="color: #c9a961;">Desember 2023</p>
+              <h3 id="story-3-title" class="font-serif text-2xl font-bold mb-3"
+                style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">The Proposal</h3>
+              <p id="story-3-text" class="text-base leading-relaxed"
+                style="color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Momen yang tak terlupakan ketika
+                ia berlutut dan mengajukan pertanyaan yang paling ditunggu. Dengan hati penuh bahagia, kami siap
+                memulai babak baru dalam hidup bersama.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- 7. Portraits of Us -->
+  <section class="section-white">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center slide-up mb-16">
+        <div class="icon-ornament">
+          📸
+        </div>
+        <h2 class="font-serif text-4xl md:text-5xl mb-4 gold-text font-bold">Portraits of Us</h2>
+        <div class="divider-ornament">
+          <div class="divider-line"></div><span class="divider-center">❖</span>
+          <div class="divider-line"></div>
+        </div>
+        <p class="text-base mt-6" style="color: #777;">Momen prewedding kami</p>
+      </div><!-- Gallery with Main Photo + Thumbnails -->
+      <div class="max-w-5xl mx-auto"><!-- Main Photo Display -->
+        <div class="relative mb-8"><button id="gallery-prev-btn"
+            class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 md:-translate-x-16 z-10 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white shadow-xl hover:shadow-2xl transition-all flex items-center justify-center"
+            style="border: 2px solid #c9a961; color: #c9a961; font-size: 24px; font-weight: bold; cursor: pointer;">
+            ‹ </button>
+          <div class="relative mx-auto" style="max-width: 700px;"><input type="file" id="gallery-current-upload"
+              accept="image/*" style="display: none;"> <button
+              onclick="document.getElementById('gallery-current-upload').click()"
+              class="absolute top-4 right-4 z-10 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:shadow-xl transition-all"
+              style="border: 2px solid #c9a961; color: #c9a961; font-size: 20px; cursor: pointer;"
+              title="Upload foto gallery"> 📷 </button>
+            <div id="main-photo" class="rounded-3xl overflow-hidden" style="box-shadow: 0 20px 60px rgba(0,0,0,0.15);">
+              <div class="gallery-photo" style="padding-bottom: 75%; border-radius: 0; box-shadow: none; border: none;">
+              </div>
+            </div>
+          </div><button id="gallery-next-btn"
+            class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 md:translate-x-16 z-10 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white shadow-xl hover:shadow-2xl transition-all flex items-center justify-center"
+            style="border: 2px solid #c9a961; color: #c9a961; font-size: 24px; font-weight: bold; cursor: pointer;">
+            › </button>
+        </div><!-- Thumbnail Row with Auto-Scroll -->
+        <div class="relative overflow-hidden px-4">
+          <div id="thumbnail-track" class="flex gap-4 transition-transform duration-500 ease-out">
+            <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all"
+              data-index="0"
+              style="width: 120px; height: 120px; border: 3px solid #c9a961; box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);">
+              <div class="gallery-photo"
+                style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+            </div>
+            <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all"
+              data-index="1" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+              <div class="gallery-photo"
+                style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+            </div>
+            <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all"
+              data-index="2" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+              <div class="gallery-photo"
+                style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+            </div>
+            <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all"
+              data-index="3" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+              <div class="gallery-photo"
+                style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+            </div>
+            <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all"
+              data-index="4" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+              <div class="gallery-photo"
+                style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+            </div>
+            <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all"
+              data-index="5" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+              <div class="gallery-photo"
+                style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+            </div>
+            <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all"
+              data-index="6" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+              <div class="gallery-photo"
+                style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+            </div>
+            <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all"
+              data-index="7" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+              <div class="gallery-photo"
+                style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+            </div>
+            <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all"
+              data-index="8" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+              <div class="gallery-photo"
+                style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+            </div>
+            <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all"
+              data-index="9" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+              <div class="gallery-photo"
+                style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+            </div>
+          </div>
+        </div><!-- Photo Counter -->
+        <div class="text-center mt-6">
+          <p class="text-sm" style="color: #999;"><span id="current-photo" class="font-bold gold-text text-lg">1</span>
+            / <span class="text-base">10</span></p>
+        </div>
+      </div>
+    </div>
+  </section><!-- 8. Save The Date -->
+  <section class="section-dark">
+    <div class="max-w-4xl mx-auto text-center">
+      <div class="slide-up">
+        <div class="icon-ornament">
+          ⏰
+        </div>
+        <h2 class="font-serif text-4xl md:text-5xl mb-4 gold-text font-bold">Save The Date</h2>
+        <div class="divider-ornament">
+          <div class="divider-line"></div><span class="divider-center">❖</span>
+          <div class="divider-line"></div>
+        </div>
+        <p class="text-base mt-6 mb-12" style="color: #ccc;">Hitung mundur menuju hari bahagia kami</p>
+        <div class="countdown-container">
+          <div class="countdown-box">
+            <div id="days" class="countdown-number">
+              00
+            </div>
+            <div class="countdown-label">
+              Hari
+            </div>
+          </div>
+          <div class="countdown-box">
+            <div id="hours" class="countdown-number">
+              00
+            </div>
+            <div class="countdown-label">
+              Jam
+            </div>
+          </div>
+          <div class="countdown-box">
+            <div id="minutes" class="countdown-number">
+              00
+            </div>
+            <div class="countdown-label">
+              Menit
+            </div>
+          </div>
+          <div class="countdown-box">
+            <div id="seconds" class="countdown-number">
+              00
+            </div>
+            <div class="countdown-label">
+              Detik
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- 9. It's Wedding Day -->
+  <section class="section-light">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center slide-up mb-16">
+        <div class="icon-ornament">
+          💒
+        </div>
+        <h2 class="font-serif text-4xl md:text-5xl mb-4 gold-text font-bold">It's Wedding Day!</h2>
+        <div class="divider-ornament">
+          <div class="divider-line"></div><span class="divider-center">❖</span>
+          <div class="divider-line"></div>
+        </div>
+        <p class="text-base mt-6 mb-10" style="color: #777;">Dengan penuh sukacita, kami mengundang Anda</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8"><!-- Akad Nikah -->
+        <div class="event-card slide-up text-center">
+          <div class="text-5xl mb-6">
+            💍
+          </div>
+          <h3 class="font-serif text-3xl mb-6 gold-text font-bold">Akad Nikah</h3>
+          <div class="space-y-3" style="color: #555;">
+            <p id="akad-date" class="text-base font-medium">Sabtu, 31 Desember 2024</p>
+            <p id="akad-time" class="text-xl font-semibold gold-text">09:00 - 10:00 WIB</p>
+            <div class="mt-5 pt-5 border-t border-gray-200">
+              <p id="akad-venue" class="font-bold text-lg mb-2">Grand Ballroom Hotel Santika</p>
+              <p id="akad-address" class="text-sm mb-6">Jl. Gatot Subroto No. 123, Jakarta Selatan</p><a
+                id="akad-maps-link" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">
+                <button class="btn-secondary">📍 LIHAT PETA</button> </a>
+            </div>
+          </div>
+        </div><!-- Resepsi -->
+        <div class="event-card slide-up text-center" style="transition-delay: 0.2s;">
+          <div class="text-5xl mb-6">
+            🎊
+          </div>
+          <h3 class="font-serif text-3xl mb-6 gold-text font-bold">Resepsi</h3>
+          <div class="space-y-3" style="color: #555;">
+            <p id="resepsi-date" class="text-base font-medium">Sabtu, 31 Desember 2024</p>
+            <p id="resepsi-time" class="text-xl font-semibold gold-text">11:00 - 14:00 WIB</p>
+            <div class="mt-5 pt-5 border-t border-gray-200">
+              <p id="resepsi-venue" class="font-bold text-lg mb-2">Grand Ballroom Hotel Santika</p>
+              <p id="resepsi-address" class="text-sm mb-6">Jl. Gatot Subroto No. 123, Jakarta Selatan</p><a
+                id="resepsi-maps-link" href="https://maps.google.com" target="_blank" rel="noopener noreferrer">
+                <button class="btn-secondary">📍 LIHAT PETA</button> </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section><!-- 10. RSVP -->
+  <section class="section-white">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center slide-up mb-12">
+        <div class="icon-ornament">
+          ✉️
+        </div>
+        <h2 class="font-serif text-4xl md:text-5xl mb-4 gold-text font-bold">RSVP</h2>
+        <div class="divider-ornament">
+          <div class="divider-line"></div><span class="divider-center">❖</span>
+          <div class="divider-line"></div>
+        </div>
+        <p class="text-lg mt-6 mb-10 font-semibold" style="color: #555;">Will you attend our wedding?</p>
+      </div>
+      <form id="rsvp-form" class="event-card slide-up">
+        <div class="space-y-6">
+          <div><label for="rsvp-name" class="block mb-3 text-sm font-semibold gold-text">YOUR NAME</label> <input
+              type="text" id="rsvp-name" class="form-input" placeholder="Enter your name" required>
+          </div>
+          <div><label class="block mb-4 text-sm font-semibold gold-text">YOUR ATTENDANCE</label>
+            <div class="flex flex-col gap-4"><button type="button" id="btn-attend" class="btn-attend">✓ WILL
+                ATTEND</button> <button type="button" id="btn-unable" class="btn-unable">✗ UNABLE TO ATTEND</button>
+            </div><input type="hidden" id="attendance-value" required>
+          </div>
+          <div id="guest-count-section" style="display: none;"><label for="rsvp-count"
+              class="block mb-3 text-sm font-semibold gold-text">HOW MANY PEOPLE? (INCLUDING YOU)</label> <input
+              type="number" id="rsvp-count" class="form-input" min="1" max="5" value="1">
+          </div><button type="submit" class="btn-primary w-full">SEND CONFIRMATION</button>
+          <div id="rsvp-status" class="text-center text-sm mt-4"></div>
+        </div>
+      </form>
+    </div>
+  </section><!-- 11. Wedding Wish -->
+  <section class="section-light">
+    <div class="max-w-4xl mx-auto">
+      <div class="text-center slide-up mb-12">
+        <div class="icon-ornament">
+          💬
+        </div>
+        <h2 class="font-serif text-4xl md:text-5xl mb-4 gold-text font-bold">Wedding Wishes</h2>
+        <div class="divider-ornament">
+          <div class="divider-line"></div><span class="divider-center">❖</span>
+          <div class="divider-line"></div>
+        </div>
+        <p class="text-base mt-6 mb-10" style="color: #777;">Send your best wishes for us</p>
+      </div>
+      <form id="wish-form" class="max-w-2xl mx-auto event-card slide-up mb-12">
+        <div class="space-y-5">
+          <div><label for="wish-name" class="block mb-3 text-sm font-semibold gold-text">YOUR NAME</label> <input
+              type="text" id="wish-name" class="form-input" placeholder="Enter your name" required>
+          </div>
+          <div><label for="wish-message" class="block mb-3 text-sm font-semibold gold-text">YOUR WISHES &amp;
+              PRAYERS</label> <textarea id="wish-message" rows="4" class="form-input"
+              placeholder="Write your wishes and prayers for us..." required></textarea>
+          </div><button type="submit" class="btn-primary w-full">SEND WISHES</button>
+          <div id="wish-status" class="text-center text-sm mt-4"></div>
+        </div>
+      </form>
+      <div id="wishes-list" class="slide-up">
+        <p class="text-center" style="color: #999; font-style: italic;">Belum ada ucapan 💝</p>
+      </div>
+    </div>
+  </section><!-- 12. Wedding Gift -->
+  <section class="section-white">
+    <div class="max-w-2xl mx-auto">
+      <div class="text-center slide-up mb-12">
+        <div class="icon-ornament">
+          🎁
+        </div>
+        <h2 class="font-serif text-4xl md:text-5xl mb-4 gold-text font-bold">Wedding Gift</h2>
+        <div class="divider-ornament">
+          <div class="divider-line"></div><span class="divider-center">❖</span>
+          <div class="divider-line"></div>
+        </div>
+        <p class="text-base mt-6 mb-10" style="color: #777;">Doa restu Anda adalah hadiah terindah bagi kami</p>
+      </div>
+      <div class="slide-up text-center">
+        <p class="mb-6 text-lg" style="color: #555;">Bagi yang ingin memberikan hadiah, dapat melalui:</p><button
+          id="toggle-gift-btn" class="btn-primary mb-6">LIHAT DETAIL REKENING</button>
+        <div id="gift-box" class="gift-box">
+          <div class="text-5xl mb-6">
+            🏦
+          </div>
+          <p id="gift-bank" class="font-bold text-xl mb-4 gold-text">Bank BCA</p>
+          <p id="gift-account" class="font-serif text-4xl gold-text mb-4 font-bold" style="letter-spacing: 2px;">
+            1234567890</p>
+          <p id="gift-name" class="text-base mb-6" style="color: #777;">a.n. Ansel Mahendra</p><button id="copy-account"
+            class="btn-secondary">📋 SALIN NOMOR REKENING</button>
+          <p id="copy-status" class="text-sm mt-4"></p>
+        </div>
+      </div>
+    </div>
+  </section><!-- 13. Closing -->
+  <section class="section-light">
+    <div class="max-w-3xl mx-auto text-center">
+      <div class="slide-up">
+        <div class="icon-ornament">
+          🙏
+        </div>
+        <div class="divider-ornament">
+          <div class="divider-line"></div><span class="divider-center">❖</span>
+          <div class="divider-line"></div>
+        </div>
+        <p id="closing-text" class="text-lg md:text-xl leading-relaxed mb-8" style="color: #555; line-height: 1.9;">
+          Merupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu
+          kepada kami. Atas kehadiran serta doa restu, kami ucapkan terima kasih.</p>
+        <p class="font-serif text-2xl gold-text font-bold">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+      </div>
+    </div>
+  </section><!-- 14. Cover Penutup -->
+  <section class="hero-section flex items-center justify-center" style="min-height: 100%;">
+    <svg class="floral-svg floral-top-left" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M100,100 Q120,80 140,100 T180,100 Q180,120 160,140 T140,180 Q120,180 100,160 T60,140 Q60,120 80,100 T100,100"
+        fill="#c9a961" />
+      <circle cx="100" cy="100" r="15" fill="#c9a961" />
+    </svg>
+    <svg class="floral-svg floral-top-right" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M100,100 Q120,80 140,100 T180,100 Q180,120 160,140 T140,180 Q120,180 100,160 T60,140 Q60,120 80,100 T100,100"
+        fill="#c9a961" />
+      <circle cx="100" cy="100" r="15" fill="#c9a961" />
+    </svg>
+    <svg class="floral-svg floral-bottom-left" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M100,100 Q120,80 140,100 T180,100 Q180,120 160,140 T140,180 Q120,180 100,160 T60,140 Q60,120 80,100 T100,100"
+        fill="#c9a961" />
+      <circle cx="100" cy="100" r="15" fill="#c9a961" />
+    </svg>
+    <svg class="floral-svg floral-bottom-right" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <path
+        d="M100,100 Q120,80 140,100 T180,100 Q180,120 160,140 T140,180 Q120,180 100,160 T60,140 Q60,120 80,100 T100,100"
+        fill="#c9a961" />
+      <circle cx="100" cy="100" r="15" fill="#c9a961" />
+    </svg>
+    <div class="text-center fade-in" style="position: relative; z-index: 10;">
+      <p class="text-sm tracking-widest mb-6" style="color: #c9a961; letter-spacing: 3px;">THANK YOU</p>
+      <div class="mb-8">
+        <h1 id="closing-bride-name" class="font-script text-7xl md:text-8xl mb-4 gold-text float-animation">Varo
+        </h1>
+        <div class="divider-ornament">
+          <div class="divider-line"></div><span class="divider-center">❖</span>
+          <div class="divider-line"></div>
+        </div>
+        <h1 id="closing-groom-name" class="font-script text-7xl md:text-8xl mt-4 gold-text float-animation"
+          style="animation-delay: 0.3s;">Ansel</h1>
+      </div>
+      <p class="text-base tracking-widest mt-8" style="color: #ffffff; letter-spacing: 2px; font-weight: 300;">See
+        you on our special day ✨</p>
+    </div>
+  </section>
+  </div>
+  </div>
+  <script src="script.js"></script>
+  <script>(function () { function c() { var b = a.contentDocument || a.contentWindow.document; if (b) { var d = b.createElement('script'); d.innerHTML = "window.__CF$cv$params={r:'9afdd6dd559ba8ee',t:'MTc2NjA1MjMwMC4wMDAwMDA='};var a = document.createElement('script'); a.nonce = ''; a.src = '/cdn-cgi/challenge-platform/scripts/jsd/main.js'; document.getElementsByTagName('head')[0].appendChild(a); "; b.getElementsByTagName('head')[0].appendChild(d) } } if (document.body) { var a = document.createElement('iframe'); a.height = 1; a.width = 1; a.style.position = 'absolute'; a.style.top = 0; a.style.left = 0; a.style.border = 'none'; a.style.visibility = 'hidden'; document.body.appendChild(a); if ('loading' !== document.readyState) c(); else if (window.addEventListener) document.addEventListener('DOMContentLoaded', c); else { var e = document.onreadystatechange || function () { }; document.onreadystatechange = function (b) { e(b); 'loading' !== document.readyState && (document.onreadystatechange = e, c()) } } } })();</script>
+</body>
+
+</html>

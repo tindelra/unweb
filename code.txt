@@ -1,0 +1,1634 @@
+<!doctype html>
+<html lang="id" class="h-full">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wedding Invitation</title>
+  <script src="/_sdk/element_sdk.js"></script>
+  <script src="/_sdk/data_sdk.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700;900&amp;family=Poppins:wght@300;400;500;600&amp;family=Great+Vibes&amp;display=swap" rel="stylesheet">
+  <style>
+    body {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+    
+    * {
+      font-family: 'Poppins', sans-serif;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    html, body, #app {
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden;
+    }
+    
+    .font-serif {
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .font-script {
+      font-family: 'Great Vibes', cursive;
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(40px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-15px); }
+    }
+    
+    @keyframes shimmer {
+      0%, 100% { opacity: 0.3; }
+      50% { opacity: 0.7; }
+    }
+    
+    .fade-in {
+      animation: fadeIn 1.5s ease-out;
+    }
+    
+    .float-animation {
+      animation: float 4s ease-in-out infinite;
+    }
+    
+    .slide-up {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 1s ease-out;
+    }
+    
+    .slide-up.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    
+    .hero-section {
+      background: linear-gradient(180deg, rgba(20,20,20,1) 0%, rgba(45,45,45,1) 50%, rgba(20,20,20,1) 100%);
+      position: relative;
+      overflow: hidden;
+      min-height: 100%;
+    }
+    
+    .hero-section::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-image: 
+        radial-gradient(circle at 20% 30%, rgba(201, 169, 97, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 70%, rgba(201, 169, 97, 0.06) 0%, transparent 50%);
+      pointer-events: none;
+    }
+    
+    .floral-svg {
+      position: absolute;
+      opacity: 0.12;
+      pointer-events: none;
+      z-index: 1;
+    }
+    
+    .floral-top-left {
+      top: -50px;
+      left: -50px;
+      width: 300px;
+      height: 300px;
+    }
+    
+    .floral-top-right {
+      top: -50px;
+      right: -50px;
+      width: 300px;
+      height: 300px;
+      transform: scaleX(-1);
+    }
+    
+    .floral-bottom-left {
+      bottom: -50px;
+      left: -50px;
+      width: 300px;
+      height: 300px;
+      transform: scaleY(-1);
+    }
+    
+    .floral-bottom-right {
+      bottom: -50px;
+      right: -50px;
+      width: 300px;
+      height: 300px;
+      transform: scale(-1);
+    }
+    
+    .gold-text {
+      color: #c9a961;
+      text-shadow: 0 2px 10px rgba(201, 169, 97, 0.4);
+    }
+    
+    .divider-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 25px auto;
+      gap: 15px;
+    }
+    
+    .divider-line {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c9a961, transparent);
+    }
+    
+    .divider-center {
+      color: #c9a961;
+      font-size: 18px;
+      animation: shimmer 3s ease-in-out infinite;
+    }
+    
+    .section-dark {
+      background: linear-gradient(180deg, #1a1a1a 0%, #2d2d2d 50%, #1a1a1a 100%);
+      color: #ffffff;
+    }
+    
+    .section-light {
+      background: #f8f5f0;
+      color: #2d2d2d;
+    }
+    
+    .section-white {
+      background: #ffffff;
+      color: #2d2d2d;
+    }
+    
+    .photo-frame {
+      width: 100%;
+      max-width: 400px;
+      margin: 0 auto;
+      position: relative;
+    }
+    
+    .photo-placeholder {
+      width: 100%;
+      padding-bottom: 120%;
+      background: linear-gradient(135deg, #d0c4b8 0%, #e8dfd5 50%, #d0c4b8 100%);
+      border-radius: 50%;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.3);
+      border: 6px solid rgba(201, 169, 97, 0.3);
+    }
+    
+    .photo-placeholder::before {
+      content: '👰';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 100px;
+      opacity: 0.3;
+    }
+    
+    .couple-photo {
+      padding-bottom: 140%;
+    }
+    
+    .couple-photo::before {
+      content: '💑';
+    }
+    
+    .gallery-photo {
+      width: 100%;
+      padding-bottom: 100%;
+      background: linear-gradient(135deg, #d0c4b8 0%, #e8dfd5 50%, #d0c4b8 100%);
+      border-radius: 20px;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+      border: 4px solid rgba(255,255,255,0.8);
+      transition: transform 0.4s ease;
+    }
+    
+    .gallery-photo:hover {
+      transform: translateY(-10px) scale(1.02);
+    }
+    
+    .gallery-photo::before {
+      content: '📸';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 60px;
+      opacity: 0.2;
+    }
+    
+    .timeline-item {
+      position: relative;
+      padding-left: 60px;
+      padding-bottom: 50px;
+    }
+    
+    .timeline-item::before {
+      content: '';
+      position: absolute;
+      left: 19px;
+      top: 40px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(180deg, #c9a961, transparent);
+    }
+    
+    .timeline-item:last-child::before {
+      display: none;
+    }
+    
+    .timeline-dot {
+      position: absolute;
+      left: 0;
+      top: 10px;
+      width: 40px;
+      height: 40px;
+      background: linear-gradient(135deg, #c9a961, #d4b772);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);
+      color: white;
+      font-size: 18px;
+    }
+    
+    .countdown-container {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    .countdown-box {
+      background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+      border-radius: 20px;
+      padding: 25px 15px;
+      text-align: center;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      border: 2px solid rgba(201, 169, 97, 0.2);
+    }
+    
+    .countdown-number {
+      font-size: 42px;
+      font-weight: 700;
+      color: #c9a961;
+      line-height: 1;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .countdown-label {
+      font-size: 12px;
+      color: #666;
+      margin-top: 8px;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .event-card {
+      background: linear-gradient(135deg, #ffffff 0%, #fafafa 100%);
+      border-radius: 25px;
+      padding: 40px 30px;
+      box-shadow: 0 15px 50px rgba(0,0,0,0.12);
+      position: relative;
+      overflow: hidden;
+      border: 1px solid rgba(201, 169, 97, 0.1);
+    }
+    
+    .event-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 5px;
+      background: linear-gradient(90deg, #c9a961, #d4b772, #c9a961);
+    }
+    
+    .btn-primary {
+      background: linear-gradient(135deg, #c9a961 0%, #d4b772 50%, #c9a961 100%);
+      background-size: 200% 100%;
+      color: white;
+      padding: 14px 35px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.4s ease;
+      font-weight: 600;
+      font-size: 14px;
+      letter-spacing: 0.5px;
+      box-shadow: 0 8px 25px rgba(201, 169, 97, 0.35);
+      text-transform: uppercase;
+    }
+    
+    .btn-primary:hover {
+      background-position: right center;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(201, 169, 97, 0.5);
+    }
+    
+    .btn-secondary {
+      background: white;
+      color: #c9a961;
+      border: 2px solid #c9a961;
+      padding: 12px 30px;
+      border-radius: 50px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      font-size: 13px;
+    }
+    
+    .btn-secondary:hover {
+      background: #c9a961;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(201, 169, 97, 0.3);
+    }
+    
+    .btn-attend {
+      background: #16a34a;
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 8px 25px rgba(22, 163, 74, 0.3);
+    }
+    
+    .btn-attend:hover {
+      background: #15803d;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(22, 163, 74, 0.4);
+    }
+    
+    .btn-unable {
+      background: #94a3b8;
+      color: white;
+      padding: 16px 40px;
+      border-radius: 50px;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      font-weight: 600;
+      font-size: 14px;
+      box-shadow: 0 8px 25px rgba(148, 163, 184, 0.3);
+    }
+    
+    .btn-unable:hover {
+      background: #64748b;
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(148, 163, 184, 0.4);
+    }
+    
+    .btn-attend.selected {
+      background: #15803d;
+      box-shadow: 0 0 0 4px rgba(22, 163, 74, 0.2);
+    }
+    
+    .btn-unable.selected {
+      background: #64748b;
+      box-shadow: 0 0 0 4px rgba(148, 163, 184, 0.2);
+    }
+    
+    .form-input {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid #e0e0e0;
+      border-radius: 15px;
+      font-size: 15px;
+      transition: all 0.3s ease;
+      background: #fafafa;
+    }
+    
+    .form-input:focus {
+      outline: none;
+      border-color: #c9a961;
+      background: white;
+      box-shadow: 0 0 0 4px rgba(201, 169, 97, 0.1);
+    }
+    
+    .message-card {
+      background: white;
+      padding: 25px;
+      border-radius: 20px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+      margin-bottom: 20px;
+      border-left: 5px solid #c9a961;
+      transition: all 0.3s ease;
+    }
+    
+    .message-card:hover {
+      transform: translateX(5px);
+      box-shadow: 0 8px 30px rgba(201, 169, 97, 0.15);
+    }
+    
+    .gift-box {
+      background: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+      padding: 0;
+      border-radius: 20px;
+      border: 2px solid rgba(201, 169, 97, 0.2);
+      text-align: center;
+      max-height: 0;
+      overflow: hidden;
+      opacity: 0;
+      transition: max-height 0.5s ease, padding 0.5s ease, opacity 0.5s ease;
+    }
+    
+    .gift-box.open {
+      max-height: 500px;
+      padding: 40px 30px;
+      opacity: 1;
+    }
+    
+    section {
+      padding: 80px 20px;
+      position: relative;
+    }
+    
+    .icon-ornament {
+      font-size: 45px;
+      margin-bottom: 15px;
+      display: inline-block;
+      filter: drop-shadow(0 4px 10px rgba(201, 169, 97, 0.3));
+    }
+    
+    .loading {
+      opacity: 0.6;
+      pointer-events: none;
+    }
+    
+    @media (max-width: 768px) {
+      .countdown-container {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 15px;
+      }
+      
+      .countdown-number {
+        font-size: 36px;
+      }
+      
+      section {
+        padding: 60px 15px;
+      }
+      
+      .event-card {
+        padding: 30px 20px;
+      }
+      
+      .timeline-item {
+        padding-left: 50px;
+      }
+    }
+  </style>
+  <style>@view-transition { navigation: auto; }</style>
+ </head>
+ <body class="h-full">
+  <div id="app" class="w-full h-full overflow-auto"><!-- Cover Page -->
+   <div id="cover-page" class="hero-section flex items-center justify-center" style="min-height: 100%; position: fixed; top: 0; left: 0; right: 0; bottom: 0; z-index: 9999;">
+    <svg class="floral-svg floral-top-left" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M100,100 Q120,80 140,100 T180,100 Q180,120 160,140 T140,180 Q120,180 100,160 T60,140 Q60,120 80,100 T100,100" fill="#c9a961" /> <circle cx="100" cy="100" r="15" fill="#c9a961" />
+    </svg>
+    <svg class="floral-svg floral-top-right" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M100,100 Q120,80 140,100 T180,100 Q180,120 160,140 T140,180 Q120,180 100,160 T60,140 Q60,120 80,100 T100,100" fill="#c9a961" /> <circle cx="100" cy="100" r="15" fill="#c9a961" />
+    </svg>
+    <svg class="floral-svg floral-bottom-left" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M100,100 Q120,80 140,100 T180,100 Q180,120 160,140 T140,180 Q120,180 100,160 T60,140 Q60,120 80,100 T100,100" fill="#c9a961" /> <circle cx="100" cy="100" r="15" fill="#c9a961" />
+    </svg>
+    <svg class="floral-svg floral-bottom-right" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M100,100 Q120,80 140,100 T180,100 Q180,120 160,140 T140,180 Q120,180 100,160 T60,140 Q60,120 80,100 T100,100" fill="#c9a961" /> <circle cx="100" cy="100" r="15" fill="#c9a961" />
+    </svg>
+    <div class="text-center fade-in" style="position: relative; z-index: 10;">
+     <p class="text-sm tracking-widest mb-6" style="color: #c9a961; letter-spacing: 3px;">THE WEDDING OF</p>
+     <div class="mb-8">
+      <h1 id="cover-bride-name" class="font-script text-7xl md:text-8xl mb-4 gold-text float-animation">Varo</h1>
+      <div class="divider-ornament">
+       <div class="divider-line"></div><span class="divider-center">❖</span>
+       <div class="divider-line"></div>
+      </div>
+      <h1 id="cover-groom-name" class="font-script text-7xl md:text-8xl mt-4 gold-text float-animation" style="animation-delay: 0.3s;">Ansel</h1>
+     </div>
+     <div class="mt-12"><button id="open-invitation-btn" class="btn-primary">OPEN INVITATION</button>
+     </div>
+    </div>
+   </div><!-- Main Content -->
+   <div id="main-content" style="display: none;"><!-- 1. Opening: Judul & Foto -->
+    <section class="section-light">
+     <div class="max-w-4xl mx-auto text-center">
+      <div class="slide-up">
+       <p id="opening-title" class="text-sm tracking-widest mb-8" style="color: #c9a961; letter-spacing: 3px;">THE WEDDING OF</p>
+       <div class="photo-frame" style="max-width: 350px; position: relative;"><input type="file" id="opening-couple-upload" accept="image/*" style="display: none;"> <button onclick="document.getElementById('opening-couple-upload').click()" class="absolute top-4 right-4 z-10 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:shadow-xl transition-all" style="border: 2px solid #c9a961; color: #c9a961; font-size: 20px; cursor: pointer;" title="Upload foto couple"> 📷 </button>
+        <div id="opening-couple-photo" class="photo-placeholder couple-photo"></div>
+       </div>
+       <h1 class="font-script text-6xl md:text-7xl mt-10 mb-4 gold-text"><span id="opening-bride">Varo</span> &amp; <span id="opening-groom">Ansel</span></h1>
+      </div>
+     </div>
+    </section><!-- 2. Ayat Al-Quran -->
+    <section class="section-white">
+     <div class="max-w-3xl mx-auto text-center">
+      <div class="slide-up">
+       <div class="icon-ornament">
+        📖
+       </div>
+       <div class="divider-ornament">
+        <div class="divider-line"></div><span class="divider-center">❖</span>
+        <div class="divider-line"></div>
+       </div>
+       <p id="quran-verse" class="font-serif text-xl md:text-2xl leading-relaxed mb-6" style="color: #555; font-style: italic; line-height: 1.8;">"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."</p>
+       <p id="quran-source" class="text-sm gold-text font-semibold tracking-wide">QS. Ar-Rum: 21</p>
+      </div>
+     </div>
+    </section><!-- 3. Mempelai Wanita -->
+    <section class="section-light">
+     <div class="max-w-4xl mx-auto">
+      <div class="slide-up text-center">
+       <div class="icon-ornament">
+        👰
+       </div>
+       <h2 class="font-serif text-4xl md:text-5xl mb-8 gold-text font-bold">The Bride</h2>
+       <div class="photo-frame" style="max-width: 320px; position: relative;"><input type="file" id="bride-photo-upload" accept="image/*" style="display: none;"> <button onclick="document.getElementById('bride-photo-upload').click()" class="absolute top-4 right-4 z-10 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:shadow-xl transition-all" style="border: 2px solid #c9a961; color: #c9a961; font-size: 20px; cursor: pointer;" title="Upload foto bride"> 📷 </button>
+        <div id="bride-photo" class="photo-placeholder"></div>
+       </div>
+       <h3 id="bride-full-name" class="font-script text-5xl md:text-6xl mt-8 mb-4 gold-text">Varo Amelia Putri</h3>
+       <p class="text-base mb-2" style="color: #666;">Putri dari</p>
+       <p class="text-lg font-semibold mb-1" style="color: #555;"><span id="bride-father">Bapak Ahmad</span> &amp; <span id="bride-mother">Ibu Siti</span></p>
+       <div class="mt-6"><a id="bride-instagram-link" href="https://instagram.com/varoamelia" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-base gold-text hover:underline"> <span>📷</span> <span id="bride-instagram">@varoamelia</span> </a>
+       </div>
+      </div>
+     </div>
+    </section><!-- 4. Mempelai Pria -->
+    <section class="section-white">
+     <div class="max-w-4xl mx-auto">
+      <div class="slide-up text-center">
+       <div class="icon-ornament">
+        🤵
+       </div>
+       <h2 class="font-serif text-4xl md:text-5xl mb-8 gold-text font-bold">The Groom</h2>
+       <div class="photo-frame" style="max-width: 320px; position: relative;"><input type="file" id="groom-photo-upload" accept="image/*" style="display: none;"> <button onclick="document.getElementById('groom-photo-upload').click()" class="absolute top-4 right-4 z-10 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:shadow-xl transition-all" style="border: 2px solid #c9a961; color: #c9a961; font-size: 20px; cursor: pointer;" title="Upload foto groom"> 📷 </button>
+        <div id="groom-photo" class="photo-placeholder"></div>
+       </div>
+       <h3 id="groom-full-name" class="font-script text-5xl md:text-6xl mt-8 mb-4 gold-text">Ansel Mahendra</h3>
+       <p class="text-base mb-2" style="color: #666;">Putra dari</p>
+       <p class="text-lg font-semibold mb-1" style="color: #555;"><span id="groom-father">Bapak Budi</span> &amp; <span id="groom-mother">Ibu Rina</span></p>
+       <div class="mt-6"><a id="groom-instagram-link" href="https://instagram.com/anselmahendra" target="_blank" rel="noopener noreferrer" class="inline-flex items-center gap-2 text-base gold-text hover:underline"> <span>📷</span> <span id="groom-instagram">@anselmahendra</span> </a>
+       </div>
+      </div>
+     </div>
+    </section><!-- 5. Love Quote -->
+    <section class="section-dark">
+     <div class="max-w-3xl mx-auto text-center">
+      <div class="slide-up">
+       <div class="icon-ornament">
+        💕
+       </div>
+       <div class="divider-ornament">
+        <div class="divider-line"></div><span class="divider-center">❖</span>
+        <div class="divider-line"></div>
+       </div>
+       <p id="love-quote" class="font-serif text-2xl md:text-3xl leading-relaxed" style="color: #ffffff; font-style: italic; line-height: 1.8;">"Cinta adalah menemukan orang yang tepat di waktu yang tepat, yang membuat hidup terasa lebih indah dan bermakna."</p>
+      </div>
+     </div>
+    </section><!-- 6. Our Story -->
+    <section class="section-light">
+     <div class="max-w-4xl mx-auto">
+      <div class="text-center slide-up mb-16">
+       <div class="icon-ornament">
+        💝
+       </div>
+       <h2 class="font-serif text-4xl md:text-5xl mb-4 gold-text font-bold">Our Story</h2>
+       <div class="divider-ornament">
+        <div class="divider-line"></div><span class="divider-center">❖</span>
+        <div class="divider-line"></div>
+       </div>
+       <p class="text-base mt-6" style="color: #777;">Perjalanan cinta kami</p>
+      </div>
+      <div class="max-w-2xl mx-auto"><!-- Timeline 1 -->
+       <div class="timeline-item slide-up">
+        <div class="timeline-dot">
+         💫
+        </div>
+        <div id="story-1-bg" class="rounded-2xl shadow-lg overflow-hidden" style="position: relative; background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23d0c4b8%22 width=%22400%22 height=%22400%22/><circle cx=%22200%22 cy=%22200%22 r=%22100%22 fill=%22%23e8dfd5%22 opacity=%220.3%22/></svg>') center/cover, linear-gradient(135deg, #d0c4b8 0%, #e8dfd5 50%, #d0c4b8 100%); min-height: 300px;"><input type="file" id="story-1-upload" accept="image/*" style="display: none;"> <button onclick="document.getElementById('story-1-upload').click()" class="absolute top-4 right-4 z-10 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-all" style="border: 2px solid #c9a961; color: #c9a961; font-size: 18px; cursor: pointer;" title="Upload foto"> 📷 </button>
+         <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 1;"></div>
+         <div style="position: relative; z-index: 2; padding: 40px 30px; color: white;">
+          <p id="story-1-date" class="text-sm font-semibold mb-2" style="color: #c9a961;">Januari 2020</p>
+          <h3 id="story-1-title" class="font-serif text-2xl font-bold mb-3" style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">First Meet</h3>
+          <p id="story-1-text" class="text-base leading-relaxed" style="color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Pertemuan pertama kami yang tak terduga di sebuah acara kampus. Saat itu kami tidak menyangka bahwa pertemuan singkat itu akan menjadi awal dari sebuah kisah cinta yang indah.</p>
+         </div>
+        </div>
+       </div><!-- Timeline 2 -->
+       <div class="timeline-item slide-up">
+        <div class="timeline-dot">
+         ❤️
+        </div>
+        <div id="story-2-bg" class="rounded-2xl shadow-lg overflow-hidden" style="position: relative; background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23c9b8a8%22 width=%22400%22 height=%22400%22/><circle cx=%22150%22 cy=%22250%22 r=%22120%22 fill=%22%23d8cfc5%22 opacity=%220.3%22/></svg>') center/cover, linear-gradient(135deg, #c9b8a8 0%, #d8cfc5 50%, #c9b8a8 100%); min-height: 300px;"><input type="file" id="story-2-upload" accept="image/*" style="display: none;"> <button onclick="document.getElementById('story-2-upload').click()" class="absolute top-4 right-4 z-10 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-all" style="border: 2px solid #c9a961; color: #c9a961; font-size: 18px; cursor: pointer;" title="Upload foto"> 📷 </button>
+         <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 1;"></div>
+         <div style="position: relative; z-index: 2; padding: 40px 30px; color: white;">
+          <p id="story-2-date" class="text-sm font-semibold mb-2" style="color: #c9a961;">Juni 2021</p>
+          <h3 id="story-2-title" class="font-serif text-2xl font-bold mb-3" style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">The Relationship</h3>
+          <p id="story-2-text" class="text-base leading-relaxed" style="color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Kami memulai perjalanan sebagai sepasang kekasih. Setiap hari terasa istimewa, penuh dengan tawa, cerita, dan kenangan indah yang terus kami ciptakan bersama.</p>
+         </div>
+        </div>
+       </div><!-- Timeline 3 -->
+       <div class="timeline-item slide-up">
+        <div class="timeline-dot">
+         💍
+        </div>
+        <div id="story-3-bg" class="rounded-2xl shadow-lg overflow-hidden" style="position: relative; background: url('data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22400%22><rect fill=%22%23b8a89c%22 width=%22400%22 height=%22400%22/><circle cx=%22250%22 cy=%22150%22 r=%22110%22 fill=%22%23cfc5bb%22 opacity=%220.3%22/></svg>') center/cover, linear-gradient(135deg, #b8a89c 0%, #cfc5bb 50%, #b8a89c 100%); min-height: 300px;"><input type="file" id="story-3-upload" accept="image/*" style="display: none;"> <button onclick="document.getElementById('story-3-upload').click()" class="absolute top-4 right-4 z-10 bg-white rounded-full w-10 h-10 flex items-center justify-center shadow-lg hover:shadow-xl transition-all" style="border: 2px solid #c9a961; color: #c9a961; font-size: 18px; cursor: pointer;" title="Upload foto"> 📷 </button>
+         <div style="position: absolute; inset: 0; background: rgba(0,0,0,0.3); z-index: 1;"></div>
+         <div style="position: relative; z-index: 2; padding: 40px 30px; color: white;">
+          <p id="story-3-date" class="text-sm font-semibold mb-2" style="color: #c9a961;">Desember 2023</p>
+          <h3 id="story-3-title" class="font-serif text-2xl font-bold mb-3" style="color: #ffffff; text-shadow: 2px 2px 4px rgba(0,0,0,0.5);">The Proposal</h3>
+          <p id="story-3-text" class="text-base leading-relaxed" style="color: #ffffff; text-shadow: 1px 1px 3px rgba(0,0,0,0.5);">Momen yang tak terlupakan ketika ia berlutut dan mengajukan pertanyaan yang paling ditunggu. Dengan hati penuh bahagia, kami siap memulai babak baru dalam hidup bersama.</p>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- 7. Portraits of Us -->
+    <section class="section-white">
+     <div class="max-w-6xl mx-auto">
+      <div class="text-center slide-up mb-16">
+       <div class="icon-ornament">
+        📸
+       </div>
+       <h2 class="font-serif text-4xl md:text-5xl mb-4 gold-text font-bold">Portraits of Us</h2>
+       <div class="divider-ornament">
+        <div class="divider-line"></div><span class="divider-center">❖</span>
+        <div class="divider-line"></div>
+       </div>
+       <p class="text-base mt-6" style="color: #777;">Momen prewedding kami</p>
+      </div><!-- Gallery with Main Photo + Thumbnails -->
+      <div class="max-w-5xl mx-auto"><!-- Main Photo Display -->
+       <div class="relative mb-8"><button id="gallery-prev-btn" class="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-14 md:-translate-x-16 z-10 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white shadow-xl hover:shadow-2xl transition-all flex items-center justify-center" style="border: 2px solid #c9a961; color: #c9a961; font-size: 24px; font-weight: bold; cursor: pointer;"> ‹ </button>
+        <div class="relative mx-auto" style="max-width: 700px;"><input type="file" id="gallery-current-upload" accept="image/*" style="display: none;"> <button onclick="document.getElementById('gallery-current-upload').click()" class="absolute top-4 right-4 z-10 bg-white rounded-full w-12 h-12 flex items-center justify-center shadow-lg hover:shadow-xl transition-all" style="border: 2px solid #c9a961; color: #c9a961; font-size: 20px; cursor: pointer;" title="Upload foto gallery"> 📷 </button>
+         <div id="main-photo" class="rounded-3xl overflow-hidden" style="box-shadow: 0 20px 60px rgba(0,0,0,0.15);">
+          <div class="gallery-photo" style="padding-bottom: 75%; border-radius: 0; box-shadow: none; border: none;"></div>
+         </div>
+        </div><button id="gallery-next-btn" class="absolute right-0 top-1/2 -translate-y-1/2 translate-x-14 md:translate-x-16 z-10 w-12 h-12 md:w-14 md:h-14 rounded-full bg-white shadow-xl hover:shadow-2xl transition-all flex items-center justify-center" style="border: 2px solid #c9a961; color: #c9a961; font-size: 24px; font-weight: bold; cursor: pointer;"> › </button>
+       </div><!-- Thumbnail Row with Auto-Scroll -->
+       <div class="relative overflow-hidden px-4">
+        <div id="thumbnail-track" class="flex gap-4 transition-transform duration-500 ease-out">
+         <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all" data-index="0" style="width: 120px; height: 120px; border: 3px solid #c9a961; box-shadow: 0 4px 15px rgba(201, 169, 97, 0.4);">
+          <div class="gallery-photo" style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+         </div>
+         <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all" data-index="1" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+          <div class="gallery-photo" style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+         </div>
+         <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all" data-index="2" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+          <div class="gallery-photo" style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+         </div>
+         <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all" data-index="3" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+          <div class="gallery-photo" style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+         </div>
+         <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all" data-index="4" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+          <div class="gallery-photo" style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+         </div>
+         <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all" data-index="5" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+          <div class="gallery-photo" style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+         </div>
+         <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all" data-index="6" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+          <div class="gallery-photo" style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+         </div>
+         <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all" data-index="7" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+          <div class="gallery-photo" style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+         </div>
+         <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all" data-index="8" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+          <div class="gallery-photo" style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+         </div>
+         <div class="thumbnail-item cursor-pointer flex-shrink-0 rounded-xl overflow-hidden transition-all" data-index="9" style="width: 120px; height: 120px; border: 3px solid transparent; opacity: 0.6;">
+          <div class="gallery-photo" style="padding-bottom: 100%; border-radius: 0; box-shadow: none; border: none;"></div>
+         </div>
+        </div>
+       </div><!-- Photo Counter -->
+       <div class="text-center mt-6">
+        <p class="text-sm" style="color: #999;"><span id="current-photo" class="font-bold gold-text text-lg">1</span> / <span class="text-base">10</span></p>
+       </div>
+      </div>
+     </div>
+    </section><!-- 8. Save The Date -->
+    <section class="section-dark">
+     <div class="max-w-4xl mx-auto text-center">
+      <div class="slide-up">
+       <div class="icon-ornament">
+        ⏰
+       </div>
+       <h2 class="font-serif text-4xl md:text-5xl mb-4 gold-text font-bold">Save The Date</h2>
+       <div class="divider-ornament">
+        <div class="divider-line"></div><span class="divider-center">❖</span>
+        <div class="divider-line"></div>
+       </div>
+       <p class="text-base mt-6 mb-12" style="color: #ccc;">Hitung mundur menuju hari bahagia kami</p>
+       <div class="countdown-container">
+        <div class="countdown-box">
+         <div id="days" class="countdown-number">
+          00
+         </div>
+         <div class="countdown-label">
+          Hari
+         </div>
+        </div>
+        <div class="countdown-box">
+         <div id="hours" class="countdown-number">
+          00
+         </div>
+         <div class="countdown-label">
+          Jam
+         </div>
+        </div>
+        <div class="countdown-box">
+         <div id="minutes" class="countdown-number">
+          00
+         </div>
+         <div class="countdown-label">
+          Menit
+         </div>
+        </div>
+        <div class="countdown-box">
+         <div id="seconds" class="countdown-number">
+          00
+         </div>
+         <div class="countdown-label">
+          Detik
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- 9. It's Wedding Day -->
+    <section class="section-light">
+     <div class="max-w-5xl mx-auto">
+      <div class="text-center slide-up mb-16">
+       <div class="icon-ornament">
+        💒
+       </div>
+       <h2 class="font-serif text-4xl md:text-5xl mb-4 gold-text font-bold">It's Wedding Day!</h2>
+       <div class="divider-ornament">
+        <div class="divider-line"></div><span class="divider-center">❖</span>
+        <div class="divider-line"></div>
+       </div>
+       <p class="text-base mt-6 mb-10" style="color: #777;">Dengan penuh sukacita, kami mengundang Anda</p>
+      </div>
+      <div class="grid md:grid-cols-2 gap-8"><!-- Akad Nikah -->
+       <div class="event-card slide-up text-center">
+        <div class="text-5xl mb-6">
+         💍
+        </div>
+        <h3 class="font-serif text-3xl mb-6 gold-text font-bold">Akad Nikah</h3>
+        <div class="space-y-3" style="color: #555;">
+         <p id="akad-date" class="text-base font-medium">Sabtu, 31 Desember 2024</p>
+         <p id="akad-time" class="text-xl font-semibold gold-text">09:00 - 10:00 WIB</p>
+         <div class="mt-5 pt-5 border-t border-gray-200">
+          <p id="akad-venue" class="font-bold text-lg mb-2">Grand Ballroom Hotel Santika</p>
+          <p id="akad-address" class="text-sm mb-6">Jl. Gatot Subroto No. 123, Jakarta Selatan</p><a id="akad-maps-link" href="https://maps.google.com" target="_blank" rel="noopener noreferrer"> <button class="btn-secondary">📍 LIHAT PETA</button> </a>
+         </div>
+        </div>
+       </div><!-- Resepsi -->
+       <div class="event-card slide-up text-center" style="transition-delay: 0.2s;">
+        <div class="text-5xl mb-6">
+         🎊
+        </div>
+        <h3 class="font-serif text-3xl mb-6 gold-text font-bold">Resepsi</h3>
+        <div class="space-y-3" style="color: #555;">
+         <p id="resepsi-date" class="text-base font-medium">Sabtu, 31 Desember 2024</p>
+         <p id="resepsi-time" class="text-xl font-semibold gold-text">11:00 - 14:00 WIB</p>
+         <div class="mt-5 pt-5 border-t border-gray-200">
+          <p id="resepsi-venue" class="font-bold text-lg mb-2">Grand Ballroom Hotel Santika</p>
+          <p id="resepsi-address" class="text-sm mb-6">Jl. Gatot Subroto No. 123, Jakarta Selatan</p><a id="resepsi-maps-link" href="https://maps.google.com" target="_blank" rel="noopener noreferrer"> <button class="btn-secondary">📍 LIHAT PETA</button> </a>
+         </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </section><!-- 10. RSVP -->
+    <section class="section-white">
+     <div class="max-w-2xl mx-auto">
+      <div class="text-center slide-up mb-12">
+       <div class="icon-ornament">
+        ✉️
+       </div>
+       <h2 class="font-serif text-4xl md:text-5xl mb-4 gold-text font-bold">RSVP</h2>
+       <div class="divider-ornament">
+        <div class="divider-line"></div><span class="divider-center">❖</span>
+        <div class="divider-line"></div>
+       </div>
+       <p class="text-lg mt-6 mb-10 font-semibold" style="color: #555;">Will you attend our wedding?</p>
+      </div>
+      <form id="rsvp-form" class="event-card slide-up">
+       <div class="space-y-6">
+        <div><label for="rsvp-name" class="block mb-3 text-sm font-semibold gold-text">YOUR NAME</label> <input type="text" id="rsvp-name" class="form-input" placeholder="Enter your name" required>
+        </div>
+        <div><label class="block mb-4 text-sm font-semibold gold-text">YOUR ATTENDANCE</label>
+         <div class="flex flex-col gap-4"><button type="button" id="btn-attend" class="btn-attend">✓ WILL ATTEND</button> <button type="button" id="btn-unable" class="btn-unable">✗ UNABLE TO ATTEND</button>
+         </div><input type="hidden" id="attendance-value" required>
+        </div>
+        <div id="guest-count-section" style="display: none;"><label for="rsvp-count" class="block mb-3 text-sm font-semibold gold-text">HOW MANY PEOPLE? (INCLUDING YOU)</label> <input type="number" id="rsvp-count" class="form-input" min="1" max="5" value="1">
+        </div><button type="submit" class="btn-primary w-full">SEND CONFIRMATION</button>
+        <div id="rsvp-status" class="text-center text-sm mt-4"></div>
+       </div>
+      </form>
+     </div>
+    </section><!-- 11. Wedding Wish -->
+    <section class="section-light">
+     <div class="max-w-4xl mx-auto">
+      <div class="text-center slide-up mb-12">
+       <div class="icon-ornament">
+        💬
+       </div>
+       <h2 class="font-serif text-4xl md:text-5xl mb-4 gold-text font-bold">Wedding Wishes</h2>
+       <div class="divider-ornament">
+        <div class="divider-line"></div><span class="divider-center">❖</span>
+        <div class="divider-line"></div>
+       </div>
+       <p class="text-base mt-6 mb-10" style="color: #777;">Send your best wishes for us</p>
+      </div>
+      <form id="wish-form" class="max-w-2xl mx-auto event-card slide-up mb-12">
+       <div class="space-y-5">
+        <div><label for="wish-name" class="block mb-3 text-sm font-semibold gold-text">YOUR NAME</label> <input type="text" id="wish-name" class="form-input" placeholder="Enter your name" required>
+        </div>
+        <div><label for="wish-message" class="block mb-3 text-sm font-semibold gold-text">YOUR WISHES &amp; PRAYERS</label> <textarea id="wish-message" rows="4" class="form-input" placeholder="Write your wishes and prayers for us..." required></textarea>
+        </div><button type="submit" class="btn-primary w-full">SEND WISHES</button>
+        <div id="wish-status" class="text-center text-sm mt-4"></div>
+       </div>
+      </form>
+      <div id="wishes-list" class="slide-up">
+       <p class="text-center" style="color: #999; font-style: italic;">Belum ada ucapan 💝</p>
+      </div>
+     </div>
+    </section><!-- 12. Wedding Gift -->
+    <section class="section-white">
+     <div class="max-w-2xl mx-auto">
+      <div class="text-center slide-up mb-12">
+       <div class="icon-ornament">
+        🎁
+       </div>
+       <h2 class="font-serif text-4xl md:text-5xl mb-4 gold-text font-bold">Wedding Gift</h2>
+       <div class="divider-ornament">
+        <div class="divider-line"></div><span class="divider-center">❖</span>
+        <div class="divider-line"></div>
+       </div>
+       <p class="text-base mt-6 mb-10" style="color: #777;">Doa restu Anda adalah hadiah terindah bagi kami</p>
+      </div>
+      <div class="slide-up text-center">
+       <p class="mb-6 text-lg" style="color: #555;">Bagi yang ingin memberikan hadiah, dapat melalui:</p><button id="toggle-gift-btn" class="btn-primary mb-6">LIHAT DETAIL REKENING</button>
+       <div id="gift-box" class="gift-box">
+        <div class="text-5xl mb-6">
+         🏦
+        </div>
+        <p id="gift-bank" class="font-bold text-xl mb-4 gold-text">Bank BCA</p>
+        <p id="gift-account" class="font-serif text-4xl gold-text mb-4 font-bold" style="letter-spacing: 2px;">1234567890</p>
+        <p id="gift-name" class="text-base mb-6" style="color: #777;">a.n. Ansel Mahendra</p><button id="copy-account" class="btn-secondary">📋 SALIN NOMOR REKENING</button>
+        <p id="copy-status" class="text-sm mt-4"></p>
+       </div>
+      </div>
+     </div>
+    </section><!-- 13. Closing -->
+    <section class="section-light">
+     <div class="max-w-3xl mx-auto text-center">
+      <div class="slide-up">
+       <div class="icon-ornament">
+        🙏
+       </div>
+       <div class="divider-ornament">
+        <div class="divider-line"></div><span class="divider-center">❖</span>
+        <div class="divider-line"></div>
+       </div>
+       <p id="closing-text" class="text-lg md:text-xl leading-relaxed mb-8" style="color: #555; line-height: 1.9;">Merupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami. Atas kehadiran serta doa restu, kami ucapkan terima kasih.</p>
+       <p class="font-serif text-2xl gold-text font-bold">Wassalamu'alaikum Warahmatullahi Wabarakatuh</p>
+      </div>
+     </div>
+    </section><!-- 14. Cover Penutup -->
+    <section class="hero-section flex items-center justify-center" style="min-height: 100%;">
+     <svg class="floral-svg floral-top-left" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M100,100 Q120,80 140,100 T180,100 Q180,120 160,140 T140,180 Q120,180 100,160 T60,140 Q60,120 80,100 T100,100" fill="#c9a961" /> <circle cx="100" cy="100" r="15" fill="#c9a961" />
+     </svg>
+     <svg class="floral-svg floral-top-right" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M100,100 Q120,80 140,100 T180,100 Q180,120 160,140 T140,180 Q120,180 100,160 T60,140 Q60,120 80,100 T100,100" fill="#c9a961" /> <circle cx="100" cy="100" r="15" fill="#c9a961" />
+     </svg>
+     <svg class="floral-svg floral-bottom-left" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M100,100 Q120,80 140,100 T180,100 Q180,120 160,140 T140,180 Q120,180 100,160 T60,140 Q60,120 80,100 T100,100" fill="#c9a961" /> <circle cx="100" cy="100" r="15" fill="#c9a961" />
+     </svg>
+     <svg class="floral-svg floral-bottom-right" viewbox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"><path d="M100,100 Q120,80 140,100 T180,100 Q180,120 160,140 T140,180 Q120,180 100,160 T60,140 Q60,120 80,100 T100,100" fill="#c9a961" /> <circle cx="100" cy="100" r="15" fill="#c9a961" />
+     </svg>
+     <div class="text-center fade-in" style="position: relative; z-index: 10;">
+      <p class="text-sm tracking-widest mb-6" style="color: #c9a961; letter-spacing: 3px;">THANK YOU</p>
+      <div class="mb-8">
+       <h1 id="closing-bride-name" class="font-script text-7xl md:text-8xl mb-4 gold-text float-animation">Varo</h1>
+       <div class="divider-ornament">
+        <div class="divider-line"></div><span class="divider-center">❖</span>
+        <div class="divider-line"></div>
+       </div>
+       <h1 id="closing-groom-name" class="font-script text-7xl md:text-8xl mt-4 gold-text float-animation" style="animation-delay: 0.3s;">Ansel</h1>
+      </div>
+      <p class="text-base tracking-widest mt-8" style="color: #ffffff; letter-spacing: 2px; font-weight: 300;">See you on our special day ✨</p>
+     </div>
+    </section>
+   </div>
+  </div>
+  <script>
+    const defaultConfig = {
+      bride_name: "Varo",
+      groom_name: "Ansel",
+      opening_title: "THE WEDDING OF",
+      opening_couple_image: "",
+      bride_photo_image: "",
+      groom_photo_image: "",
+      quran_verse: '"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."',
+      quran_source: "QS. Ar-Rum: 21",
+      bride_full_name: "Varo Amelia Putri",
+      bride_father: "Bapak Ahmad",
+      bride_mother: "Ibu Siti",
+      bride_instagram: "@varoamelia",
+      groom_full_name: "Ansel Mahendra",
+      groom_father: "Bapak Budi",
+      groom_mother: "Ibu Rina",
+      groom_instagram: "@anselmahendra",
+      love_quote: '"Cinta adalah menemukan orang yang tepat di waktu yang tepat, yang membuat hidup terasa lebih indah dan bermakna."',
+      story_1_date: "Januari 2020",
+      story_1_title: "First Meet",
+      story_1_text: "Pertemuan pertama kami yang tak terduga di sebuah acara kampus. Saat itu kami tidak menyangka bahwa pertemuan singkat itu akan menjadi awal dari sebuah kisah cinta yang indah.",
+      story_2_date: "Juni 2021",
+      story_2_title: "The Relationship",
+      story_2_text: "Kami memulai perjalanan sebagai sepasang kekasih. Setiap hari terasa istimewa, penuh dengan tawa, cerita, dan kenangan indah yang terus kami ciptakan bersama.",
+      story_3_date: "Desember 2023",
+      story_3_title: "The Proposal",
+      story_3_text: "Momen yang tak terlupakan ketika ia berlutut dan mengajukan pertanyaan yang paling ditunggu. Dengan hati penuh bahagia, kami siap memulai babak baru dalam hidup bersama.",
+      gallery_0_image: "",
+      gallery_1_image: "",
+      gallery_2_image: "",
+      gallery_3_image: "",
+      gallery_4_image: "",
+      gallery_5_image: "",
+      gallery_6_image: "",
+      gallery_7_image: "",
+      gallery_8_image: "",
+      gallery_9_image: "",
+      wedding_date: "2024-12-31",
+      akad_date: "Sabtu, 31 Desember 2024",
+      akad_time: "09:00 - 10:00 WIB",
+      akad_venue: "Grand Ballroom Hotel Santika",
+      akad_address: "Jl. Gatot Subroto No. 123, Jakarta Selatan",
+      akad_maps: "https://maps.google.com",
+      resepsi_date: "Sabtu, 31 Desember 2024",
+      resepsi_time: "11:00 - 14:00 WIB",
+      resepsi_venue: "Grand Ballroom Hotel Santika",
+      resepsi_address: "Jl. Gatot Subroto No. 123, Jakarta Selatan",
+      resepsi_maps: "https://maps.google.com",
+      bank_name: "Bank BCA",
+      account_number: "1234567890",
+      account_name: "Ansel Mahendra",
+      closing_text: "Merupakan suatu kehormatan bagi kami apabila Bapak/Ibu/Saudara/i berkenan hadir untuk memberikan doa restu kepada kami. Atas kehadiran serta doa restu, kami ucapkan terima kasih."
+    };
+
+    let guestData = [];
+    let selectedAttendance = null;
+
+    async function onConfigChange(config) {
+      // Cover names
+      document.getElementById('cover-bride-name').textContent = config.bride_name || defaultConfig.bride_name;
+      document.getElementById('cover-groom-name').textContent = config.groom_name || defaultConfig.groom_name;
+      
+      // Opening section
+      document.getElementById('opening-title').textContent = config.opening_title || defaultConfig.opening_title;
+      document.getElementById('opening-bride').textContent = config.bride_name || defaultConfig.bride_name;
+      document.getElementById('opening-groom').textContent = config.groom_name || defaultConfig.groom_name;
+      
+      // Opening couple photo
+      const openingCouplePhoto = document.getElementById('opening-couple-photo');
+      if (config.opening_couple_image) {
+        openingCouplePhoto.style.backgroundImage = `url('${config.opening_couple_image}')`;
+        openingCouplePhoto.style.backgroundSize = 'cover';
+        openingCouplePhoto.style.backgroundPosition = 'center';
+        openingCouplePhoto.innerHTML = '';
+      }
+      
+      // Quran
+      document.getElementById('quran-verse').textContent = config.quran_verse || defaultConfig.quran_verse;
+      document.getElementById('quran-source').textContent = config.quran_source || defaultConfig.quran_source;
+      
+      // Bride
+      document.getElementById('bride-full-name').textContent = config.bride_full_name || defaultConfig.bride_full_name;
+      document.getElementById('bride-father').textContent = config.bride_father || defaultConfig.bride_father;
+      document.getElementById('bride-mother').textContent = config.bride_mother || defaultConfig.bride_mother;
+      document.getElementById('bride-instagram').textContent = config.bride_instagram || defaultConfig.bride_instagram;
+      const brideIg = (config.bride_instagram || defaultConfig.bride_instagram).replace('@', '');
+      document.getElementById('bride-instagram-link').href = `https://instagram.com/${brideIg}`;
+      
+      // Bride photo
+      const bridePhoto = document.getElementById('bride-photo');
+      if (config.bride_photo_image) {
+        bridePhoto.style.backgroundImage = `url('${config.bride_photo_image}')`;
+        bridePhoto.style.backgroundSize = 'cover';
+        bridePhoto.style.backgroundPosition = 'center';
+        bridePhoto.innerHTML = '';
+      }
+      
+      // Groom
+      document.getElementById('groom-full-name').textContent = config.groom_full_name || defaultConfig.groom_full_name;
+      document.getElementById('groom-father').textContent = config.groom_father || defaultConfig.groom_father;
+      document.getElementById('groom-mother').textContent = config.groom_mother || defaultConfig.groom_mother;
+      document.getElementById('groom-instagram').textContent = config.groom_instagram || defaultConfig.groom_instagram;
+      const groomIg = (config.groom_instagram || defaultConfig.groom_instagram).replace('@', '');
+      document.getElementById('groom-instagram-link').href = `https://instagram.com/${groomIg}`;
+      
+      // Groom photo
+      const groomPhoto = document.getElementById('groom-photo');
+      if (config.groom_photo_image) {
+        groomPhoto.style.backgroundImage = `url('${config.groom_photo_image}')`;
+        groomPhoto.style.backgroundSize = 'cover';
+        groomPhoto.style.backgroundPosition = 'center';
+        groomPhoto.innerHTML = '';
+      }
+      
+      // Love quote
+      document.getElementById('love-quote').textContent = config.love_quote || defaultConfig.love_quote;
+      
+      // Story
+      document.getElementById('story-1-date').textContent = config.story_1_date || defaultConfig.story_1_date;
+      document.getElementById('story-1-title').textContent = config.story_1_title || defaultConfig.story_1_title;
+      document.getElementById('story-1-text').textContent = config.story_1_text || defaultConfig.story_1_text;
+      document.getElementById('story-2-date').textContent = config.story_2_date || defaultConfig.story_2_date;
+      document.getElementById('story-2-title').textContent = config.story_2_title || defaultConfig.story_2_title;
+      document.getElementById('story-2-text').textContent = config.story_2_text || defaultConfig.story_2_text;
+      document.getElementById('story-3-date').textContent = config.story_3_date || defaultConfig.story_3_date;
+      document.getElementById('story-3-title').textContent = config.story_3_title || defaultConfig.story_3_title;
+      document.getElementById('story-3-text').textContent = config.story_3_text || defaultConfig.story_3_text;
+      
+      // Story images
+      if (config.story_1_image) {
+        document.getElementById('story-1-bg').style.background = `url('${config.story_1_image}') center/cover`;
+      }
+      if (config.story_2_image) {
+        document.getElementById('story-2-bg').style.background = `url('${config.story_2_image}') center/cover`;
+      }
+      if (config.story_3_image) {
+        document.getElementById('story-3-bg').style.background = `url('${config.story_3_image}') center/cover`;
+      }
+      
+      // Gallery photos
+      updateGalleryFromConfig();
+      
+      // Event
+      document.getElementById('akad-date').textContent = config.akad_date || defaultConfig.akad_date;
+      document.getElementById('akad-time').textContent = config.akad_time || defaultConfig.akad_time;
+      document.getElementById('akad-venue').textContent = config.akad_venue || defaultConfig.akad_venue;
+      document.getElementById('akad-address').textContent = config.akad_address || defaultConfig.akad_address;
+      document.getElementById('akad-maps-link').href = config.akad_maps || defaultConfig.akad_maps;
+      
+      document.getElementById('resepsi-date').textContent = config.resepsi_date || defaultConfig.resepsi_date;
+      document.getElementById('resepsi-time').textContent = config.resepsi_time || defaultConfig.resepsi_time;
+      document.getElementById('resepsi-venue').textContent = config.resepsi_venue || defaultConfig.resepsi_venue;
+      document.getElementById('resepsi-address').textContent = config.resepsi_address || defaultConfig.resepsi_address;
+      document.getElementById('resepsi-maps-link').href = config.resepsi_maps || defaultConfig.resepsi_maps;
+      
+      // Gift
+      document.getElementById('gift-bank').textContent = config.bank_name || defaultConfig.bank_name;
+      document.getElementById('gift-account').textContent = config.account_number || defaultConfig.account_number;
+      document.getElementById('gift-name').textContent = `a.n. ${config.account_name || defaultConfig.account_name}`;
+      
+      // Closing
+      document.getElementById('closing-text').textContent = config.closing_text || defaultConfig.closing_text;
+      document.getElementById('closing-bride-name').textContent = config.bride_name || defaultConfig.bride_name;
+      document.getElementById('closing-groom-name').textContent = config.groom_name || defaultConfig.groom_name;
+    }
+
+    const dataHandler = {
+      onDataChanged(data) {
+        guestData = data;
+        renderWishes();
+      }
+    };
+
+    function renderWishes() {
+      const wishesList = document.getElementById('wishes-list');
+      const messagesWithText = guestData.filter(g => g.message && g.message.trim() !== '');
+      
+      if (messagesWithText.length === 0) {
+        wishesList.innerHTML = '<p class="text-center" style="color: #999; font-style: italic;">Belum ada ucapan 💝</p>';
+        return;
+      }
+
+      wishesList.innerHTML = messagesWithText
+        .sort((a, b) => new Date(b.created_at) - new Date(a.created_at))
+        .map(g => `
+          <div class="message-card">
+            <div class="flex items-start justify-between mb-2">
+              <p class="font-bold text-lg gold-text">${escapeHtml(g.guest_name)}</p>
+              <span class="text-xs" style="color: #999;">${formatDate(g.created_at)}</span>
+            </div>
+            <p class="text-base leading-relaxed" style="color: #555;">${escapeHtml(g.message)}</p>
+          </div>
+        `).join('');
+    }
+
+    function escapeHtml(text) {
+      const div = document.createElement('div');
+      div.textContent = text;
+      return div.innerHTML;
+    }
+
+    function formatDate(dateString) {
+      const date = new Date(dateString);
+      return date.toLocaleDateString('id-ID', { day: 'numeric', month: 'short', year: 'numeric' });
+    }
+
+    document.getElementById('open-invitation-btn').addEventListener('click', () => {
+      const coverPage = document.getElementById('cover-page');
+      const mainContent = document.getElementById('main-content');
+      
+      coverPage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+      coverPage.style.opacity = '0';
+      coverPage.style.transform = 'scale(0.9)';
+      
+      setTimeout(() => {
+        coverPage.style.display = 'none';
+        mainContent.style.display = 'block';
+        window.scrollTo(0, 0);
+        
+        document.querySelectorAll('.slide-up').forEach(el => {
+          observer.observe(el);
+        });
+      }, 800);
+    });
+
+    // RSVP attendance buttons
+    document.getElementById('btn-attend').addEventListener('click', function() {
+      selectedAttendance = 'attend';
+      document.getElementById('attendance-value').value = 'attend';
+      this.classList.add('selected');
+      document.getElementById('btn-unable').classList.remove('selected');
+      document.getElementById('guest-count-section').style.display = 'block';
+    });
+
+    document.getElementById('btn-unable').addEventListener('click', function() {
+      selectedAttendance = 'unable';
+      document.getElementById('attendance-value').value = 'unable';
+      this.classList.add('selected');
+      document.getElementById('btn-attend').classList.remove('selected');
+      document.getElementById('guest-count-section').style.display = 'none';
+    });
+
+    document.getElementById('rsvp-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      if (!selectedAttendance) {
+        const statusEl = document.getElementById('rsvp-status');
+        statusEl.innerHTML = '<span style="color: #dc2626; font-weight: 600;">⚠️ Please select your attendance</span>';
+        return;
+      }
+      
+      const form = e.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const statusEl = document.getElementById('rsvp-status');
+      
+      if (guestData.length >= 999) {
+        statusEl.innerHTML = '<span style="color: #dc2626; font-weight: 600;">⚠️ Maximum limit reached</span>';
+        return;
+      }
+      
+      submitBtn.classList.add('loading');
+      submitBtn.textContent = 'SENDING...';
+      statusEl.textContent = '';
+      
+      const guestName = document.getElementById('rsvp-name').value;
+      const guestCount = selectedAttendance === 'attend' ? parseInt(document.getElementById('rsvp-count').value) : 0;
+      
+      const result = await window.dataSdk.create({
+        guest_name: guestName,
+        attendance: selectedAttendance,
+        guest_count: guestCount,
+        message: '',
+        created_at: new Date().toISOString()
+      });
+      
+      submitBtn.classList.remove('loading');
+      submitBtn.textContent = 'SEND CONFIRMATION';
+      
+      if (result.isOk) {
+        statusEl.innerHTML = '<span style="color: #16a34a; font-weight: 600;">✓ Thank you for your confirmation!</span>';
+        form.reset();
+        selectedAttendance = null;
+        document.getElementById('btn-attend').classList.remove('selected');
+        document.getElementById('btn-unable').classList.remove('selected');
+        document.getElementById('guest-count-section').style.display = 'none';
+      } else {
+        statusEl.innerHTML = '<span style="color: #dc2626; font-weight: 600;">✗ Error occurred. Please try again.</span>';
+      }
+    });
+
+    document.getElementById('wish-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      
+      const form = e.target;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const statusEl = document.getElementById('wish-status');
+      
+      if (guestData.length >= 999) {
+        statusEl.innerHTML = '<span style="color: #dc2626; font-weight: 600;">⚠️ Maximum limit reached</span>';
+        return;
+      }
+      
+      submitBtn.classList.add('loading');
+      submitBtn.textContent = 'SENDING...';
+      statusEl.textContent = '';
+      
+      const guestName = document.getElementById('wish-name').value;
+      const message = document.getElementById('wish-message').value;
+      
+      const result = await window.dataSdk.create({
+        guest_name: guestName,
+        attendance: 'wish',
+        guest_count: 0,
+        message: message,
+        created_at: new Date().toISOString()
+      });
+      
+      submitBtn.classList.remove('loading');
+      submitBtn.textContent = 'SEND WISHES';
+      
+      if (result.isOk) {
+        statusEl.innerHTML = '<span style="color: #16a34a; font-weight: 600;">✓ Thank you for your wishes!</span>';
+        form.reset();
+      } else {
+        statusEl.innerHTML = '<span style="color: #dc2626; font-weight: 600;">✗ Error occurred. Please try again.</span>';
+      }
+    });
+
+    document.getElementById('toggle-gift-btn').addEventListener('click', () => {
+      const giftBox = document.getElementById('gift-box');
+      const btn = document.getElementById('toggle-gift-btn');
+      
+      if (giftBox.classList.contains('open')) {
+        giftBox.classList.remove('open');
+        btn.textContent = 'LIHAT DETAIL REKENING';
+      } else {
+        giftBox.classList.add('open');
+        btn.textContent = 'TUTUP DETAIL REKENING';
+      }
+    });
+
+    document.getElementById('copy-account').addEventListener('click', () => {
+      const accountNumber = window.elementSdk.config.account_number || defaultConfig.account_number;
+      const copyStatus = document.getElementById('copy-status');
+      
+      navigator.clipboard.writeText(accountNumber).then(() => {
+        copyStatus.innerHTML = '<span style="color: #16a34a; font-weight: 600;">✓ Account number copied!</span>';
+        setTimeout(() => {
+          copyStatus.textContent = '';
+        }, 3000);
+      }).catch(() => {
+        copyStatus.innerHTML = '<span style="color: #dc2626;">Failed to copy</span>';
+      });
+    });
+
+    function updateCountdown() {
+      const weddingDate = new Date(window.elementSdk.config.wedding_date || defaultConfig.wedding_date);
+      const now = new Date();
+      const diff = weddingDate - now;
+      
+      if (diff <= 0) {
+        document.getElementById('days').textContent = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('minutes').textContent = '00';
+        document.getElementById('seconds').textContent = '00';
+        return;
+      }
+      
+      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+      
+      document.getElementById('days').textContent = String(days).padStart(2, '0');
+      document.getElementById('hours').textContent = String(hours).padStart(2, '0');
+      document.getElementById('minutes').textContent = String(minutes).padStart(2, '0');
+      document.getElementById('seconds').textContent = String(seconds).padStart(2, '0');
+    }
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    // Gallery carousel with thumbnails
+    let currentGalleryIndex = 0;
+    const totalPhotos = 10;
+    const prevBtn = document.getElementById('gallery-prev-btn');
+    const nextBtn = document.getElementById('gallery-next-btn');
+    const currentPhotoEl = document.getElementById('current-photo');
+    const thumbnailTrack = document.getElementById('thumbnail-track');
+    const thumbnailItems = document.querySelectorAll('.thumbnail-item');
+    let autoSlideInterval;
+
+    function updateGalleryFromConfig() {
+      const config = window.elementSdk ? window.elementSdk.config : defaultConfig;
+      
+      // Update main photo
+      const mainPhoto = document.querySelector('#main-photo .gallery-photo');
+      const galleryKey = `gallery_${currentGalleryIndex}_image`;
+      if (config[galleryKey]) {
+        mainPhoto.style.backgroundImage = `url('${config[galleryKey]}')`;
+        mainPhoto.style.backgroundSize = 'cover';
+        mainPhoto.style.backgroundPosition = 'center';
+        mainPhoto.innerHTML = '';
+      }
+      
+      // Update all thumbnails
+      thumbnailItems.forEach((thumb, idx) => {
+        const thumbPhoto = thumb.querySelector('.gallery-photo');
+        const thumbKey = `gallery_${idx}_image`;
+        if (config[thumbKey]) {
+          thumbPhoto.style.backgroundImage = `url('${config[thumbKey]}')`;
+          thumbPhoto.style.backgroundSize = 'cover';
+          thumbPhoto.style.backgroundPosition = 'center';
+          thumbPhoto.innerHTML = '';
+        }
+      });
+    }
+
+    function updateGalleryPosition() {
+      // Update counter
+      currentPhotoEl.textContent = currentGalleryIndex + 1;
+      
+      // Update main photo from config
+      updateGalleryFromConfig();
+      
+      // Update thumbnail highlights
+      thumbnailItems.forEach((thumb, idx) => {
+        if (idx === currentGalleryIndex) {
+          thumb.style.border = '3px solid #c9a961';
+          thumb.style.boxShadow = '0 4px 15px rgba(201, 169, 97, 0.4)';
+          thumb.style.opacity = '1';
+        } else {
+          thumb.style.border = '3px solid transparent';
+          thumb.style.boxShadow = 'none';
+          thumb.style.opacity = '0.6';
+        }
+      });
+      
+      // Auto-scroll thumbnails to center the active one
+      const thumbWidth = 120 + 16; // width + gap
+      const containerWidth = thumbnailTrack.parentElement.offsetWidth;
+      const offset = (currentGalleryIndex * thumbWidth) - (containerWidth / 2) + (thumbWidth / 2);
+      thumbnailTrack.style.transform = `translateX(-${Math.max(0, offset)}px)`;
+    }
+
+    function nextPhoto() {
+      currentGalleryIndex = (currentGalleryIndex + 1) % totalPhotos;
+      updateGalleryPosition();
+    }
+
+    function prevPhoto() {
+      currentGalleryIndex = (currentGalleryIndex - 1 + totalPhotos) % totalPhotos;
+      updateGalleryPosition();
+    }
+
+    function startAutoSlide() {
+      autoSlideInterval = setInterval(() => {
+        nextPhoto();
+      }, 3000);
+    }
+
+    function stopAutoSlide() {
+      if (autoSlideInterval) {
+        clearInterval(autoSlideInterval);
+      }
+    }
+
+    prevBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      prevPhoto();
+      startAutoSlide();
+    });
+
+    nextBtn.addEventListener('click', () => {
+      stopAutoSlide();
+      nextPhoto();
+      startAutoSlide();
+    });
+
+    // Click on thumbnails
+    thumbnailItems.forEach((thumb, idx) => {
+      thumb.addEventListener('click', () => {
+        stopAutoSlide();
+        currentGalleryIndex = idx;
+        updateGalleryPosition();
+        startAutoSlide();
+      });
+    });
+
+    // Pause auto-slide when user hovers over gallery
+    const gallerySection = document.querySelector('#main-photo').closest('section');
+    if (gallerySection) {
+      gallerySection.addEventListener('mouseenter', stopAutoSlide);
+      gallerySection.addEventListener('mouseleave', startAutoSlide);
+    }
+
+    // Initialize gallery
+    updateGalleryPosition();
+    startAutoSlide();
+
+    // Handle story image uploads
+    function setupStoryUpload(uploadId, bgId, configKey) {
+      const uploadInput = document.getElementById(uploadId);
+      const bgElement = document.getElementById(bgId);
+      
+      uploadInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        
+        if (!file.type.startsWith('image/')) {
+          return;
+        }
+        
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const imageData = event.target.result;
+          bgElement.style.background = `url('${imageData}') center/cover`;
+          
+          if (window.elementSdk) {
+            const updateObj = {};
+            updateObj[configKey] = imageData;
+            window.elementSdk.setConfig(updateObj);
+          }
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // Handle photo uploads (for bride, groom, opening couple)
+    function setupPhotoUpload(uploadId, photoId, configKey) {
+      const uploadInput = document.getElementById(uploadId);
+      const photoElement = document.getElementById(photoId);
+      
+      uploadInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        
+        if (!file.type.startsWith('image/')) {
+          return;
+        }
+        
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const imageData = event.target.result;
+          photoElement.style.backgroundImage = `url('${imageData}')`;
+          photoElement.style.backgroundSize = 'cover';
+          photoElement.style.backgroundPosition = 'center';
+          photoElement.innerHTML = '';
+          
+          if (window.elementSdk) {
+            const updateObj = {};
+            updateObj[configKey] = imageData;
+            window.elementSdk.setConfig(updateObj);
+          }
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    // Handle gallery photo upload
+    function setupGalleryUpload() {
+      const uploadInput = document.getElementById('gallery-current-upload');
+      
+      uploadInput.addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (!file) return;
+        
+        if (!file.type.startsWith('image/')) {
+          return;
+        }
+        
+        const reader = new FileReader();
+        reader.onload = function(event) {
+          const imageData = event.target.result;
+          const configKey = `gallery_${currentGalleryIndex}_image`;
+          
+          // Update main photo
+          const mainPhoto = document.querySelector('#main-photo .gallery-photo');
+          mainPhoto.style.backgroundImage = `url('${imageData}')`;
+          mainPhoto.style.backgroundSize = 'cover';
+          mainPhoto.style.backgroundPosition = 'center';
+          mainPhoto.innerHTML = '';
+          
+          // Update thumbnail
+          const currentThumb = thumbnailItems[currentGalleryIndex].querySelector('.gallery-photo');
+          currentThumb.style.backgroundImage = `url('${imageData}')`;
+          currentThumb.style.backgroundSize = 'cover';
+          currentThumb.style.backgroundPosition = 'center';
+          currentThumb.innerHTML = '';
+          
+          if (window.elementSdk) {
+            const updateObj = {};
+            updateObj[configKey] = imageData;
+            window.elementSdk.setConfig(updateObj);
+          }
+        };
+        reader.readAsDataURL(file);
+      });
+    }
+
+    (async function init() {
+      if (window.elementSdk) {
+        await window.elementSdk.init({
+          defaultConfig,
+          onConfigChange,
+          mapToCapabilities: () => ({
+            recolorables: [],
+            borderables: [],
+            fontEditable: undefined,
+            fontSizeable: undefined
+          }),
+          mapToEditPanelValues: (config) => new Map([
+            ["bride_name", config.bride_name || defaultConfig.bride_name],
+            ["groom_name", config.groom_name || defaultConfig.groom_name],
+            ["opening_title", config.opening_title || defaultConfig.opening_title],
+            ["opening_couple_image", config.opening_couple_image || defaultConfig.opening_couple_image],
+            ["bride_photo_image", config.bride_photo_image || defaultConfig.bride_photo_image],
+            ["groom_photo_image", config.groom_photo_image || defaultConfig.groom_photo_image],
+            ["quran_verse", config.quran_verse || defaultConfig.quran_verse],
+            ["quran_source", config.quran_source || defaultConfig.quran_source],
+            ["bride_full_name", config.bride_full_name || defaultConfig.bride_full_name],
+            ["bride_father", config.bride_father || defaultConfig.bride_father],
+            ["bride_mother", config.bride_mother || defaultConfig.bride_mother],
+            ["bride_instagram", config.bride_instagram || defaultConfig.bride_instagram],
+            ["groom_full_name", config.groom_full_name || defaultConfig.groom_full_name],
+            ["groom_father", config.groom_father || defaultConfig.groom_father],
+            ["groom_mother", config.groom_mother || defaultConfig.groom_mother],
+            ["groom_instagram", config.groom_instagram || defaultConfig.groom_instagram],
+            ["love_quote", config.love_quote || defaultConfig.love_quote],
+            ["story_1_date", config.story_1_date || defaultConfig.story_1_date],
+            ["story_1_title", config.story_1_title || defaultConfig.story_1_title],
+            ["story_1_text", config.story_1_text || defaultConfig.story_1_text],
+            ["story_2_date", config.story_2_date || defaultConfig.story_2_date],
+            ["story_2_title", config.story_2_title || defaultConfig.story_2_title],
+            ["story_2_text", config.story_2_text || defaultConfig.story_2_text],
+            ["story_3_date", config.story_3_date || defaultConfig.story_3_date],
+            ["story_3_title", config.story_3_title || defaultConfig.story_3_title],
+            ["story_3_text", config.story_3_text || defaultConfig.story_3_text],
+            ["gallery_0_image", config.gallery_0_image || defaultConfig.gallery_0_image],
+            ["gallery_1_image", config.gallery_1_image || defaultConfig.gallery_1_image],
+            ["gallery_2_image", config.gallery_2_image || defaultConfig.gallery_2_image],
+            ["gallery_3_image", config.gallery_3_image || defaultConfig.gallery_3_image],
+            ["gallery_4_image", config.gallery_4_image || defaultConfig.gallery_4_image],
+            ["gallery_5_image", config.gallery_5_image || defaultConfig.gallery_5_image],
+            ["gallery_6_image", config.gallery_6_image || defaultConfig.gallery_6_image],
+            ["gallery_7_image", config.gallery_7_image || defaultConfig.gallery_7_image],
+            ["gallery_8_image", config.gallery_8_image || defaultConfig.gallery_8_image],
+            ["gallery_9_image", config.gallery_9_image || defaultConfig.gallery_9_image],
+            ["wedding_date", config.wedding_date || defaultConfig.wedding_date],
+            ["akad_date", config.akad_date || defaultConfig.akad_date],
+            ["akad_time", config.akad_time || defaultConfig.akad_time],
+            ["akad_venue", config.akad_venue || defaultConfig.akad_venue],
+            ["akad_address", config.akad_address || defaultConfig.akad_address],
+            ["akad_maps", config.akad_maps || defaultConfig.akad_maps],
+            ["resepsi_date", config.resepsi_date || defaultConfig.resepsi_date],
+            ["resepsi_time", config.resepsi_time || defaultConfig.resepsi_time],
+            ["resepsi_venue", config.resepsi_venue || defaultConfig.resepsi_venue],
+            ["resepsi_address", config.resepsi_address || defaultConfig.resepsi_address],
+            ["resepsi_maps", config.resepsi_maps || defaultConfig.resepsi_maps],
+            ["bank_name", config.bank_name || defaultConfig.bank_name],
+            ["account_number", config.account_number || defaultConfig.account_number],
+            ["account_name", config.account_name || defaultConfig.account_name],
+            ["closing_text", config.closing_text || defaultConfig.closing_text]
+          ])
+        });
+      }
+
+      if (window.dataSdk) {
+        await window.dataSdk.init(dataHandler);
+      }
+
+      // Setup story image uploads
+      setupStoryUpload('story-1-upload', 'story-1-bg', 'story_1_image');
+      setupStoryUpload('story-2-upload', 'story-2-bg', 'story_2_image');
+      setupStoryUpload('story-3-upload', 'story-3-bg', 'story_3_image');
+      
+      // Setup photo uploads
+      setupPhotoUpload('opening-couple-upload', 'opening-couple-photo', 'opening_couple_image');
+      setupPhotoUpload('bride-photo-upload', 'bride-photo', 'bride_photo_image');
+      setupPhotoUpload('groom-photo-upload', 'groom-photo', 'groom_photo_image');
+      
+      // Setup gallery upload
+      setupGalleryUpload();
+
+      setInterval(updateCountdown, 1000);
+      updateCountdown();
+    })();
+  </script>
+ <script>(function(){function c(){var b=a.contentDocument||a.contentWindow.document;if(b){var d=b.createElement('script');d.innerHTML="window.__CF$cv$params={r:'9afdd6dd559ba8ee',t:'MTc2NjA1MjMwMC4wMDAwMDA='};var a=document.createElement('script');a.nonce='';a.src='/cdn-cgi/challenge-platform/scripts/jsd/main.js';document.getElementsByTagName('head')[0].appendChild(a);";b.getElementsByTagName('head')[0].appendChild(d)}}if(document.body){var a=document.createElement('iframe');a.height=1;a.width=1;a.style.position='absolute';a.style.top=0;a.style.left=0;a.style.border='none';a.style.visibility='hidden';document.body.appendChild(a);if('loading'!==document.readyState)c();else if(window.addEventListener)document.addEventListener('DOMContentLoaded',c);else{var e=document.onreadystatechange||function(){};document.onreadystatechange=function(b){e(b);'loading'!==document.readyState&&(document.onreadystatechange=e,c())}}}})();</script></body>
+</html>
