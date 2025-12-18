@@ -194,7 +194,6 @@ body,
 .layer-16 {
   z-index: 16;
   animation-delay: 6.0s;
-  object-fit: cover;
 }
 
 .layer-17 {
