@@ -2,6 +2,9 @@ const defaultConfig = {
   bride_name: "Varo",
   groom_name: "Ansel",
   opening_title: "THE WEDDING OF",
+  opening_couple_image: "",
+  bride_photo_image: "",
+  groom_photo_image: "",
   quran_verse: '"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."',
   quran_source: "QS. Ar-Rum: 21",
   bride_full_name: "Varo Amelia Putri",
@@ -215,19 +218,16 @@ function formatDate(dateString) {
 }
 
 document.getElementById('open-invitation-btn').addEventListener('click', () => {
+  const appContainer = document.getElementById('app-container');
   const mainContent = document.getElementById('main-content');
 
-  // Since it's already split, we just scroll the content side
-  mainContent.scrollTo({
-    top: 0,
-    behavior: 'smooth'
-  });
+  // Toggle split screen state
+  appContainer.classList.add('is-opened');
 
-  // Also scroll the window just in case (for mobile)
-  window.scrollTo({
-    top: window.innerHeight,
-    behavior: 'smooth'
-  });
+  // Ensure main content is visible for animations
+  mainContent.style.display = 'block';
+
+  window.scrollTo(0, 0);
 
   document.querySelectorAll('.slide-up').forEach(el => {
     observer.observe(el);

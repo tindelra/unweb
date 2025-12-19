@@ -140,105 +140,222 @@ body,
   }
 }
 
-/* Sequence: 1, 14, 15, 4, 5, 7, 13, 12, 11, 2, 3, 9, 6, 8, 10, 16, 17 */
-.layer-1 {
+.layer-1-texture {
   z-index: 1;
+  background-position: 0% 0% !important;
+  background-size: 350%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 0s;
+}
+
+.layer-1-langit {
+  z-index: 2;
+  background-position: 0% 0% !important;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 0s;
+}
+
+.layer-1-gunung {
+  z-index: 3;
+  background-position: 0% 50% !important;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 0s;
+}
+
+.layer-1-rumput-left {
+  z-index: 3;
+  background-position: -20% 230% !important;
+  background-size: 70%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 0s;
+}
+
+.layer-1-rumput-right {
+  z-index: 3;
+  background-position: 150% 400% !important;
+  background-size: 60%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
   animation-delay: 0s;
 }
 
 .layer-14 {
-  z-index: 14;
+  z-index: 16;
+  background-position: 30% 30% !important;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
   animation-delay: 0.4s;
+  opacity: -0.5;
 }
 
 .layer-15 {
-  z-index: 15;
+  z-index: 16;
+  background-position: 50% 50% !important;
+  background-size: 20%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
   animation-delay: 0.8s;
 }
 
 .layer-4 {
-  z-index: 4;
+  z-index: 6;
   animation-delay: 1.2s;
   background-size: 72%;
   background-repeat: no-repeat;
   background-position: center;
 }
 
-.layer-5 {
-  z-index: 5;
+.layer-5-2-left {
+  z-index: 7;
+  background-position: 100% 82% !important;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 1.6;
+}
+
+.layer-5-2-right {
+  z-index: 7;
+  background-position: 0% 82% !important;
+  background-size: 50%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
   animation-delay: 1.6s;
 }
 
-.layer-7 {
-  z-index: 7;
-  animation-delay: 2.0s;
-}
-
-.layer-13 {
-  z-index: 13;
-  animation-delay: 2.4s;
-}
-
-.layer-12 {
-  z-index: 12;
+.layer-6 {
+  z-index: 8;
+  background-position: 78% 78% !important;
+  background-size: 20%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
   animation-delay: 2.8s;
 }
 
-.layer-11 {
-  z-index: 11;
-  animation-delay: 3.2s;
+.layer-5-1 {
+  z-index: 9;
+  background-position: 0% 115% !important;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 1.6s;
 }
 
-.layer-2 {
-  z-index: 2;
-  animation-delay: 3.6s;
+.layer-5 {
+  z-index: 10;
+  background-position: 0% 125% !important;
+  background-size: 100%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 2.0s;
 }
 
 .layer-2-1 {
-  z-index: 2;
-  animation-delay: 3.6s;
-}
-
-.layer-3 {
-  z-index: 3;
-  animation-delay: 4.0s;
-  background-size: 72%;
+  z-index: 4;
+  background-position: 28% 30% !important;
+  background-size: 35%;
   background-repeat: no-repeat;
-  background-position: center;
-}
-
-.layer-9 {
-  z-index: 9;
+  animation: layer-entry 1s ease-out forwards;
   animation-delay: 4.4s;
 }
 
-.layer-6 {
-  z-index: 6;
+.layer-2-2 {
+  z-index: 4;
+  background-position: 78% 30% !important;
+  background-size: 35%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 4.4s;
+}
+
+.layer-3-1 {
+  z-index: 5;
+  background-position: -5% 40% !important;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 3.6s;
+}
+
+.layer-3-2 {
+  z-index: 5;
+  background-position: 107% 43% !important;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 3.6s;
+}
+
+.layer-9-1 {
+  z-index: 12;
+  background-position: 90% 80% !important;
+  background-size: 40%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 4.8s;
+}
+
+.layer-9-2 {
+  z-index: 12;
+  background-position: 10% 80% !important;
+  background-size: 40%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
   animation-delay: 4.8s;
 }
 
 .layer-8 {
-  z-index: 8;
-  animation-delay: 5.2s;
+  z-index: 11;
+  background-position: 2% 85% !important;
+  background-size: 20%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 2.8s;
 }
 
-.layer-10 {
-  z-index: 10;
-  animation-delay: 5.6s;
+.layer-10-1 {
+  z-index: 13;
+  background-position: 5% 90% !important;
+  background-size: 20%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 2.4s;
+}
+
+.layer-10-2 {
+  z-index: 13;
+  background-position: 95% 90% !important;
+  background-size: 20%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 2.4s;
 }
 
 .layer-16 {
   z-index: 16;
+  background-position: 50% 5% !important;
+  background-size: 20%;
+  background-repeat: no-repeat;
   animation: layer-entry 1s ease-out forwards;
-  animation-delay: 6.0s;
+  animation-delay: 5.6s;
 }
 
 .layer-17 {
-  z-index: 17;
+  z-index: 16;
+  background-position: 50% 95% !important;
+  background-size: 17%;
+  background-repeat: no-repeat;
   pointer-events: auto;
   cursor: pointer;
   animation: layer-entry 1s ease-out forwards, slow-float 6s ease-in-out infinite;
-  animation-delay: 6.4s, 7.4s;
+  animation-delay: 5.6s, 6.6s;
 }
 
 /* Animations */
@@ -307,27 +424,67 @@ body,
 }
 
 /* Layer specific animations (applied AFTER entry) */
-.layer-2 {
-  animation: layer-entry 1s ease-out forwards, slow-sway-right 2s ease-in-out infinite;
-  animation-delay: 5.6s;
-}
-
-.layer-2-1 {
-  animation: layer-entry 1s ease-out forwards, slow-sway-left 2s ease-in-out infinite;
-  animation-delay: 5.6s;
-}
-
-.layer-10,
-.layer-9 {
+.layer-11-1 {
+  z-index: 14;
+  background-position: 0% 95% !important;
+  background-size: 10%;
+  background-repeat: no-repeat;
   animation: layer-entry 1s ease-out forwards;
-  animation-delay: 5.6s;
+  animation-delay: 5.2s;
 }
 
-.layer-11,
-.layer-12,
-.layer-13 {
-  animation: layer-entry 1s ease-out forwards, slow-float 7s ease-in-out infinite;
-  animation-delay: 3.2s, 4.2s;
+.layer-11-2 {
+  z-index: 14;
+  background-position: 103% 95% !important;
+  background-size: 10%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 5.2s;
+}
+
+.layer-12-1 {
+  z-index: 15;
+  background-position: 3% 110% !important;
+  background-size: 20%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 4.0s;
+}
+
+.layer-12-2 {
+  z-index: 15;
+  background-position: -1% 90% !important;
+  background-size: 10%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 3.6s;
+}
+
+.layer-12-3 {
+  z-index: 15;
+  background-position: 103% 120% !important;
+  background-size: 20%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 3.2s;
+}
+
+.layer-12-4 {
+  z-index: 15;
+  background-position: 94% 108% !important;
+  background-size: 10%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 3.6s;
+}
+
+.layer-12-5 {
+  z-index: 15;
+  background-position: -10% 108% !important;
+  background-size: 30%;
+  background-repeat: no-repeat;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 3.2s;
 }
 
 .gold-text {
