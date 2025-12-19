@@ -192,9 +192,9 @@ body,
 }
 
 .layer-16 {
-  z-index: 100;
+  z-index: 16;
+  animation: layer-entry 1s ease-out forwards;
   animation-delay: 6.0s;
-  background-size: 100% 100%;
 }
 
 .layer-17 {
