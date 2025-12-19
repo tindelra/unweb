@@ -2,9 +2,6 @@ const defaultConfig = {
   bride_name: "Varo",
   groom_name: "Ansel",
   opening_title: "THE WEDDING OF",
-  opening_couple_image: "",
-  bride_photo_image: "",
-  groom_photo_image: "",
   quran_verse: '"Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri, agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."',
   quran_source: "QS. Ar-Rum: 21",
   bride_full_name: "Varo Amelia Putri",
@@ -218,22 +215,23 @@ function formatDate(dateString) {
 }
 
 document.getElementById('open-invitation-btn').addEventListener('click', () => {
-  const coverPage = document.getElementById('cover-page');
   const mainContent = document.getElementById('main-content');
 
-  coverPage.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
-  coverPage.style.opacity = '0';
-  coverPage.style.transform = 'scale(0.9)';
+  // Since it's already split, we just scroll the content side
+  mainContent.scrollTo({
+    top: 0,
+    behavior: 'smooth'
+  });
 
-  setTimeout(() => {
-    coverPage.style.display = 'none';
-    mainContent.style.display = 'block';
-    window.scrollTo(0, 0);
+  // Also scroll the window just in case (for mobile)
+  window.scrollTo({
+    top: window.innerHeight,
+    behavior: 'smooth'
+  });
 
-    document.querySelectorAll('.slide-up').forEach(el => {
-      observer.observe(el);
-    });
-  }, 800);
+  document.querySelectorAll('.slide-up').forEach(el => {
+    observer.observe(el);
+  });
 });
 
 // RSVP attendance buttons

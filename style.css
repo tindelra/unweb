@@ -82,6 +82,31 @@ body,
   transform: translateY(0);
 }
 
+#app-container {
+  display: flex;
+  width: 100%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+#cover-page {
+  flex: 0 0 65%;
+  width: 65%;
+  height: 100%;
+  position: relative;
+  z-index: 10;
+  overflow: hidden;
+  border-right: 2px solid rgba(201, 169, 97, 0.2);
+}
+
+#main-content {
+  flex: 0 0 35%;
+  width: 35%;
+  height: 100%;
+  overflow-y: auto;
+  background-color: #ffffff;
+}
+
 .hero-section {
   position: relative;
   overflow: hidden;
@@ -134,6 +159,9 @@ body,
 .layer-4 {
   z-index: 4;
   animation-delay: 1.2s;
+  background-size: 72%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .layer-5 {
@@ -166,9 +194,17 @@ body,
   animation-delay: 3.6s;
 }
 
+.layer-2-1 {
+  z-index: 2;
+  animation-delay: 3.6s;
+}
+
 .layer-3 {
   z-index: 3;
   animation-delay: 4.0s;
+  background-size: 72%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .layer-9 {
@@ -218,15 +254,27 @@ body,
   }
 }
 
-@keyframes slow-sway {
+@keyframes slow-sway-right {
 
   0%,
   100% {
-    transform: rotate(-1deg);
+    transform: rotate(-0.5deg);
   }
 
   50% {
-    transform: rotate(1deg);
+    transform: rotate(0.5deg);
+  }
+}
+
+@keyframes slow-sway-left {
+
+  0%,
+  100% {
+    transform: rotate(0.5deg);
+  }
+
+  50% {
+    transform: rotate(-0.5deg);
   }
 }
 
@@ -246,8 +294,12 @@ body,
   animation: slow-float 6s ease-in-out infinite;
 }
 
-.animate-sway {
-  animation: slow-sway 8s ease-in-out infinite;
+.animate-sway-right {
+  animation: slow-sway-right 3s ease-in-out infinite;
+}
+
+.animate-sway-left {
+  animation: slow-sway-left 3s ease-in-out infinite;
 }
 
 .animate-pulse-soft {
@@ -255,10 +307,20 @@ body,
 }
 
 /* Layer specific animations (applied AFTER entry) */
+.layer-2 {
+  animation: layer-entry 1s ease-out forwards, slow-sway-right 2s ease-in-out infinite;
+  animation-delay: 5.6s;
+}
+
+.layer-2-1 {
+  animation: layer-entry 1s ease-out forwards, slow-sway-left 2s ease-in-out infinite;
+  animation-delay: 5.6s;
+}
+
 .layer-10,
 .layer-9 {
-  animation: layer-entry 1s ease-out forwards, slow-sway 10s ease-in-out infinite;
-  animation-delay: 5.6s, 6.6s;
+  animation: layer-entry 1s ease-out forwards;
+  animation-delay: 5.6s;
 }
 
 .layer-11,
@@ -618,6 +680,24 @@ section {
 }
 
 @media (max-width: 768px) {
+  #app-container {
+    flex-direction: column;
+    overflow-y: auto;
+  }
+
+  #cover-page {
+    flex: 0 0 100vh;
+    width: 100%;
+    border-right: none;
+    border-bottom: 2px solid rgba(201, 169, 97, 0.2);
+  }
+
+  #main-content {
+    flex: 0 0 auto;
+    width: 100%;
+    overflow-y: visible;
+  }
+
   .countdown-container {
     grid-template-columns: repeat(2, 1fr);
     gap: 15px;
